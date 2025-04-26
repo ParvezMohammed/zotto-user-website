@@ -15,16 +15,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Get To Know Us</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-600 hover:text-pink-500">About Us</a>
+                <a href="/aboutus" className="text-gray-600 hover:text-pink-500">About Us</a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-pink-500">Privacy Policy</a>
+                <a href="/privacypolicy" className="text-gray-600 hover:text-pink-500">Privacy Policy</a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-pink-500">Terms and Conditions</a>
+                <a href="termscondition" className="text-gray-600 hover:text-pink-500">Terms and Conditions</a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-pink-500">Contact Us</a>
+                <a href="contactus" className="text-gray-600 hover:text-pink-500">Contact Us</a>
               </li>
             </ul>
           </div>
