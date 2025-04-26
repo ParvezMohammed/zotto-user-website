@@ -12,14 +12,16 @@ const Layout = ({ children }) => {
   const showNewFooter = newFooterPaths.includes(path);
 
   return (
-    <div className="flex-col justify-center items-center bg-[#F2F3F5] min-h-screen">
+    <div className="flex flex-col w-full min-h-screen bg-[#F2F3F5]">
+      {/* Header */}
       <Header />
-      
-      <main className="pt-[2px]">
+
+      {/* Main Content */}
+      <main className="flex-grow w-full">
         {children}
       </main>
 
-      {/* Footer conditionally */}
+      {/* Footer */}
       {showNewFooter ? <NewFooter /> : <Footer />}
     </div>
   );

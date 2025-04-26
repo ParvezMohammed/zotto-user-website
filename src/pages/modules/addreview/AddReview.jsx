@@ -48,7 +48,7 @@ const AddReview = () => {
 
         {/* Submit Button */}
         <div className="flex justify-end mt-4">
-          <button className="bg-pink-500 text-white px-6 py-2 rounded-md text-sm sm:text-base hover:bg-pink-600 transition">
+          <button className="bg-[#FF6584] text-white px-6 py-2 rounded-md text-sm sm:text-base hover:bg-pink-600 transition">
             Submit
           </button>
         </div>

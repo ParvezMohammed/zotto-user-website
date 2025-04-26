@@ -5,26 +5,25 @@ const AboutUs = () => {
   return (
     <div className="bg-white min-h-screen py-6 px-4">
       <div className="max-w-4xl mx-auto font-poppins">
-        {/* Banner Section */}
+      
         <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] overflow-hidden">
           <img
-            src="meeting.jpg"
+            src="meeting.png"
             alt="About Us"
             className="w-full h-full object-cover"
           />
           <div className="absolute bottom-0 left-0 w-full h-24 bg-[#ff6584] opacity-[0.27]"></div>
 
-          <div className="absolute bottom-0 left-0 w-full px-4 sm:px-6 pb-4 sm:pb-6">
+          <div className="absolute bottom-0 left-0 w-full px-4 sm:px-6 ">
             <h2 className="text-[24px] sm:text-[32px] md:text-[40px] italic font-inter font-[800] text-white">
               Our Women Care Group
             </h2>
-            <p className="mt-2 text-[16px] sm:text-[20px] md:text-[24px] text-white">
+            <p className=" text-[16px] sm:text-[20px] md:text-[24px] text-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec turpis lectus.
             </p>
           </div>
         </div>
 
-        {/* Content Section */}
         <div className="mt-10 sm:mt-12">
           <h2 className="text-[24px] sm:text-[28px] md:text-[32px] font-[500] text-black mb-4 pb-2 border-b-2 border-black">
             About Us
