@@ -4,31 +4,31 @@ const initialNotifications = {
   unread: [
     {
       id: 1,
-      icon: './images/delivery-icon.png',
+      icon: '/images/delivery.png',
       message: 'Out for Delivery! Anytime Sanitary Pads ₹256.00',
       timestamp: '2 hours ago'
     },
     {
       id: 2,
-      icon: './images/delivery-status.png',
+      icon: '/images/delivery.png',
       message: 'Your order will be reach soon, Fresh n Free Sanitary Pads',
       timestamp: '3 hours ago'
     },
     {
       id: 3,
-      icon: './images/offer-icon.png',
+      icon: '/images/orders2.png',
       message: 'New Diwali offers will be coming soon. Stay connected. Update will be send to your registered phone number.',
       timestamp: '5 hours ago'
     },
     {
       id: 4,
-      icon: './images/new-arrival.png',
+      icon: '/images/sectionleft.png',
       message: 'New Arrivals ......',
       timestamp: '6 hours ago'
     },
     {
       id: 5,
-      icon: './images/delivery-icon.png',
+      icon: '/images/delivery.png',
       message: 'Out for Delivery! Anytime Sanitary Pads ₹256.00',
       timestamp: '8 hours ago'
     }
@@ -36,13 +36,13 @@ const initialNotifications = {
   read: [
     {
       id: 6,
-      icon: './images/delivered-icon.png',
+      icon: '/images/delivery.png',
       message: 'Your order has been delivered successfully!',
       timestamp: '2 days ago'
     },
     {
       id: 7,
-      icon: './images/offer-icon.png',
+      icon: '/images/ordes1.png',
       message: 'Special discount on your favorite products!',
       timestamp: '3 days ago'
     }
