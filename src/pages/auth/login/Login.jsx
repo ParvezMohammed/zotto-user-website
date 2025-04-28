@@ -9,7 +9,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // You can add phone validation here
-    navigate("/verify-otp");
+    navigate("/verifyotp");
   };
 
   return (

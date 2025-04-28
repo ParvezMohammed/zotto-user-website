@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo Section */}
           <div>
-            <img src="/images/zotto.jpg" alt="Zotto" className="h-36 w-auto" />
+            <img src="/images/zotto.jpg" alt="Zotto" className=" w-auto" style={{marginLeft:'auto'}}></img>
           </div>
 
           {/* Get To Know Us */}

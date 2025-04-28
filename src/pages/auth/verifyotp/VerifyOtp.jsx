@@ -17,7 +17,7 @@ const VerifyOtp = () => {
   const handleVerify = () => {
     if (otp.length === 6) {
       // Here you can call your API to verify the OTP
-      navigate("/location-access");
+      navigate("/locationaccess");
     } else {
       alert("Please enter a valid 6-digit OTP.");
     }

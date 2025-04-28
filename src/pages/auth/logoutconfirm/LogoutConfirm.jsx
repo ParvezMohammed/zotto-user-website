@@ -5,14 +5,13 @@ const LogoutConfirm = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Perform logout logic here
-    console.log("User logged out");
-    // Redirect to login or home
-    navigate("/");
+    // Bilkul Navbar ke tarah logout ka logic
+    localStorage.removeItem('isLoggedIn');
+    navigate('/');
   };
 
   const handleCancel = () => {
-    navigate(-1); // Go back to the previous page
+    navigate(-1); 
   };
 
   return (
