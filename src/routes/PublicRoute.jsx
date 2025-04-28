@@ -13,6 +13,7 @@ import PrivacyPolicy from "../pages/modules/privacypolicy/PrivacyPolicy.jsx";
 import TermsConditions from "../pages/modules/termsandcondition/Terms&condition.jsx";
 import ContactUs from "../pages/modules/contactus/ContactUs.jsx";
 import AboutUs from "../pages/modules/aboutus/AboutUs.jsx";
+import AccountPopup from "../pages/modules/accountpopup/AccountPopup.jsx";
 
 const PublicRoute = () => {
   const [activeTab, setActiveTab] = useState("/");
@@ -54,6 +55,14 @@ const PublicRoute = () => {
         element={
           <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
             <LogoutConfirm />
+          </Layout>
+        }
+      />
+      <Route
+        path="/accountpopup"
+        element={
+          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+            <AccountPopup />
           </Layout>
         }
       />
