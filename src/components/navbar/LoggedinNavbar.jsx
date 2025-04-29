@@ -23,7 +23,7 @@ const LoggedInNavbar = () => {
   };
 
   return (
-    <nav className="w-full bg-white shadow-md">
+    <nav className="w-full fixed top-0 left-0 bg-white z-50 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center h-16 px-4">
         {/* Logo */}
         <img src="/images/zotto.jpg" alt="Zotto" className="" />
