@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../../context/CartContext";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("all");
+  const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   const brands = [
     { image: "./images/img1.png" },
@@ -15,25 +19,33 @@ export default function Home() {
     {
       id: 1,
       name: "Regular Sanitary Pads (Pack of 10)",
-      price: "$5.99",
+      price: 256.00,
+      pads: "10 Pads",
+      size: "XL",
       image: "./images/ordes1.png",
     },
     {
       id: 2,
       name: "Deluxe Sanitary Pads (Pack of 8)",
-      price: "$7.99",
+      price: 299.00,
+      pads: "8 Pads",
+      size: "XL",
       image: "./images/orders2.png",
     },
     {
       id: 3,
       name: "Premium Sanitary Pads (Pack of 12)",
-      price: "$6.49",
+      price: 349.00,
+      pads: "12 Pads",
+      size: "XL",
       image: "./images/orders3.png",
     },
     {
       id: 4,
       name: "Jumbo Sanitary Pads (Bundle of 4)",
-      price: "$15.99",
+      price: 599.00,
+      pads: "4 Pads",
+      size: "XL",
       image: "./images/orders4.png",
     },
   ];
@@ -82,6 +94,15 @@ export default function Home() {
     setVisibleTestimonials(testimonials.length);
   };
 
+  const handleAddToCart = (product) => {
+    addToCart(product);
+  };
+
+  const handleBuyNow = (product) => {
+    addToCart(product);
+    navigate('/checkout');
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -128,13 +149,21 @@ export default function Home() {
 
             {/* Right side with products grid */}
             <div className="w-full md:w-1/2">
-              <h2 className="text-2xl font-bold text-gray-800 mb-8">
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
                 Products
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-600 mb-4">
                 Discover our wide range of high-quality products designed
                 specifically for women, offering comfort and care.
               </p>
+              <div className="flex justify-start mb-4">
+                <button
+                  onClick={() => navigate('/all-products')}
+                  className="text-pink-500 border border-pink-500 px-6 py-2 rounded-lg hover:bg-pink-50 transition-colors duration-200"
+                >
+                  View All
+                </button>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {products.map((product) => (
                   <div
@@ -149,12 +178,18 @@ export default function Home() {
                     <h1 className="font-semibold text-gray-800">
                       {product.name}
                     </h1>
-                    <p className="text-sm text-gray-500">{product.price}</p>
+                    <p className="text-sm text-gray-500">₹{product.price.toFixed(2)}</p>
                     <div className="flex mt-4">
-                      <button className="w-1/2 px-4 py-2 text-center bg-pink-500 text-white text-sm rounded-l-md hover:bg-pink-600">
+                      <button 
+                        onClick={() => handleAddToCart(product)}
+                        className="w-1/2 px-4 py-2 text-center bg-pink-500 text-white text-sm rounded-l-md hover:bg-pink-600"
+                      >
                         Add to Cart
                       </button>
-                      <button className="w-1/2 py-2 text-center border-l border-gray-100 bg-pink-500 text-white text-sm rounded-r-md">
+                      <button 
+                        onClick={() => handleBuyNow(product)}
+                        className="w-1/2 py-2 text-center border-l border-gray-100 bg-pink-500 text-white text-sm rounded-r-md hover:bg-pink-600"
+                      >
                         Buy Now
                       </button>
                     </div>
