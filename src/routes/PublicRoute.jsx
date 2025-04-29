@@ -5,7 +5,11 @@ import ProtectedRoute from "./ProtectedRoute.jsx";
 import Layout from "../components/layouts/Layout.jsx";
 import Login from "../pages/auth/Login.jsx";
 import Home from "../pages/modules/home/Home.jsx";
-
+import OrderComfirmed from "../pages/modules/order/OrderConfirmed.jsx";
+import OrderCancel from "../pages/modules/ordercancel/OrderCancel.jsx";
+import OrderDetail from "../pages/modules/vieworderdetail/OrderDetail.jsx";
+import TrackOrder from "../pages/modules/trackorder/TrackOrder.jsx";
+import Homepage from "../pages/modules/homepage/Homepage.jsx";
 const PublicRoute = () => {
   const [activeTab, setActiveTab] = useState("/");
 
@@ -31,7 +35,11 @@ const PublicRoute = () => {
             </Layout>
           }
         />
-
+        <Route path="/order" element={<OrderComfirmed/>}/>
+        <Route path="/cancel-Order" element={<OrderCancel/>}/>
+        <Route path="/ViewDetail" element={<OrderDetail/>}/>
+        <Route path="/Trackorder" element={<TrackOrder/>}/>
+        <Route path="/home" element={<Homepage/>}/>
       {/* </Route> */}
     </Routes>
   )
