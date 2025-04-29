@@ -27,7 +27,7 @@ export default function TrackOrder() {
       <div className="border border-gray-200 rounded-lg p-6 mb-8 flex">
         <div className='flex'>
         <div className="mr-8">
-          <img src="./images/image35.png" alt="Whisper Ultra Soft XL Sanitary Pads" className="w-48" />
+          <img src="/images/image35.png" alt="Whisper Ultra Soft XL Sanitary Pads" className="w-48" />
         </div>
         </div>
         <div>
