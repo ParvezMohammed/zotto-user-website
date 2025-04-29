@@ -6,18 +6,22 @@ import LoggedinNavbar from './navbar/LoggedinNavbar';
 import Footer from './Footer';
 
 const Cart = () => {
-  const { cartItems, removeFromCart, updateQuantity } = useCart();
+  const { cart, removeFromCart, updateQuantity } = useCart();
   const navigate = useNavigate();
 
   const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
   const handlePlaceOrder = () => {
+    if (cart.length === 0) {
+      alert('Your cart is empty!');
+      return;
+    }
     navigate('/checkout');
   };
 
-  if (cartItems.length === 0) {
+  if (cart.length === 0) {
     return (
       <div className="min-h-screen flex flex-col">
         <LoggedinNavbar />
@@ -64,7 +68,7 @@ const Cart = () => {
 
           {/* Cart Items */}
           <div className="space-y-4">
-            {cartItems.map((item) => (
+            {cart.map((item) => (
               <div key={item.id} className="bg-white p-4 rounded-lg flex items-start gap-4">
                 <img
                   src={item.image}
@@ -114,7 +118,7 @@ const Cart = () => {
             <h3 className="text-lg font-medium mb-4">Price Details</h3>
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span>Price ({cartItems.length} items)</span>
+                <span>Price ({cart.length} items)</span>
                 <span>₹{calculateTotal().toFixed(2)}</span>
               </div>
               <div className="flex justify-between">

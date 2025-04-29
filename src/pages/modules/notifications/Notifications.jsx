@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import LoggedinNavbar from '../components/navbar/LoggedinNavbar';
-import Footer from '../components/Footer';
+import LoggedinNavbar from '../../../components/navbar/LoggedinNavbar';
+import Footer from '../../../components/Footer';
 
 const Notifications = () => {
   const [activeTab, setActiveTab] = useState('unread');

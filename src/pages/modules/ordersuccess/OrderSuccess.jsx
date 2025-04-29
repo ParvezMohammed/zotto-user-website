@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CheckIcon } from '@heroicons/react/24/outline';
 import confetti from 'canvas-confetti';
-import { useCart } from '../context/CartContext';
-import LoggedinNavbar from '../components/navbar/LoggedinNavbar';
-import Footer from '../components/Footer';
+import { useCart } from '../../../context/CartContext';
+import LoggedinNavbar from '../../../components/navbar/LoggedinNavbar';
+import Footer from '../../../components/Footer';
 
 const OrderSuccess = () => {
   const navigate = useNavigate();
@@ -47,9 +47,7 @@ const OrderSuccess = () => {
   }, [clearCart]);
 
   const handleContinueShopping = () => {
-    // First clear any existing state
-    localStorage.setItem('isLoggedIn', 'true');
-    // Navigate to home and force a page reload to ensure proper rendering
+    // Force a page reload while navigating to ensure fresh state
     window.location.href = '/';
   };
 

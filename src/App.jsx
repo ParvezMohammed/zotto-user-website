@@ -1,17 +1,17 @@
 import {
-  BrowserRouter as Router, // Ensure BrowserRouter is imported
+  BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
 import "./App.css";
 import PublicRoute from "./routes/PublicRoute";
-import AllProducts from './pages/AllProducts';
-import ProductDetail from './pages/ProductDetail';
+import AllProducts from './pages/modules/allproducts/AllProducts';
+import ProductDetail from './pages/modules/productdetails/ProductDetail';
 import { CartProvider } from './context/CartContext';
 import Cart from './components/Cart';
-import Checkout from './pages/Checkout';
-import OrderSuccess from './pages/OrderSuccess';
-import Notifications from './pages/Notifications';
+import Checkout from './pages/modules/checkout/Checkout';
+import OrderSuccess from './pages/modules/ordersuccess/OrderSuccess';
+import Notifications from './pages/modules/notifications/Notifications';
 
 function App() {
   return (

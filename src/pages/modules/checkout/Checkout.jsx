@@ -1,25 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { useCart } from '../context/CartContext';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoggedinNavbar from '../components/navbar/LoggedinNavbar';
-import Footer from '../components/Footer';
+import { useCart } from '../../../context/CartContext';
+import LoggedinNavbar from '../../../components/navbar/LoggedinNavbar';
+import Footer from '../../../components/Footer';
 
 const Checkout = () => {
-  const { cartItems } = useCart();
   const navigate = useNavigate();
+  const { cart, getCartTotal } = useCart();
   const [paymentMethod, setPaymentMethod] = useState('cod');
   const [emergencyDelivery, setEmergencyDelivery] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  // Redirect to cart if no items
-  useEffect(() => {
-    if (cartItems.length === 0) {
-      navigate('/cart');
-    }
-  }, [cartItems, navigate]);
-
   const calculateSubtotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
   const calculateTotal = () => {
@@ -43,15 +36,16 @@ const Checkout = () => {
     }
   };
 
-  if (cartItems.length === 0) {
-    return null; // Will redirect in useEffect
+  if (cart.length === 0) {
+    navigate('/cart');
+    return null;
   }
 
   return (
     <div className="min-h-screen flex flex-col">
       <LoggedinNavbar />
-      <div className="flex-grow container mx-auto px-4 pt-20 pb-8">
-        <div className="max-w-7xl mx-auto">
+      <div className="flex-grow pt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left Section - Delivery and Payment */}
             <div className="lg:col-span-2 space-y-6">
@@ -95,8 +89,9 @@ const Checkout = () => {
                     <h3 className="font-medium mb-2">Emergency delivery</h3>
                     <div className="flex items-center">
                       <input
-                        type="checkbox"
+                        type="radio"
                         id="emergency"
+                        name="emergency"
                         checked={emergencyDelivery}
                         onChange={(e) => setEmergencyDelivery(e.target.checked)}
                         className="h-4 w-4 text-pink-500 focus:ring-pink-400"
@@ -126,7 +121,7 @@ const Checkout = () => {
                 
                 {/* Product Summary */}
                 <div className="mb-6">
-                  {cartItems.map((item) => (
+                  {cart.map((item) => (
                     <div key={item.id} className="flex items-center mb-4">
                       <img
                         src={item.image}
@@ -145,7 +140,7 @@ const Checkout = () => {
                 {/* Price Details */}
                 <div className="border-t pt-4">
                   <div className="flex justify-between mb-2">
-                    <span>Item({cartItems.length}):</span>
+                    <span>Item({cart.length}):</span>
                     <span>₹{calculateSubtotal().toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between mb-2">
