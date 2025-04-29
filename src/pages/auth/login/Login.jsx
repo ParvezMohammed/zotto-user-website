@@ -1,14 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
+import { useAuth } from "../../../context/AuthContext";
 
 function Login() {
   const [phone, setPhone] = useState("");
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // You can add phone validation here
+    login(); // Set the authenticated state
     navigate("/verifyotp");
   };
 
