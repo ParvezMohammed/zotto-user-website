@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BellIcon, ShoppingCartIcon, UserIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { BellIcon, ShoppingCartIcon, UserIcon, Bars3Icon, XMarkIcon,MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import Notifications from '../notification/Notification';
 import AccountPopup from '../account/Account';
 
@@ -27,7 +27,20 @@ const LoggedInNavbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center h-16 px-4">
         {/* Logo */}
         <img src="/images/zotto.jpg" alt="Zotto" className="" />
-
+        <div className="flex-1 max-w-2xl mx-8">
+              <div className="relative">
+                <div className="flex items-center bg-purple-50 rounded-md">
+                  <input
+                    type="text"
+                    className="w-full py-2 px-4 bg-transparent outline-none"
+                    placeholder="Search..."
+                  />
+                  <button className="p-2">
+                    <MagnifyingGlassIcon className="h-6 w-6 text-gray-500" />
+                  </button>
+                </div>
+              </div>
+            </div>
         {/* Desktop Icons */}
         <div className="hidden md:flex items-center gap-6">
           <div className="flex items-center cursor-pointer">
