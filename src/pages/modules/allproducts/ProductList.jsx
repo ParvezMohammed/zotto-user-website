@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FunnelIcon } from '@heroicons/react/24/outline';
-import LoggedinNavbar from './navbar/LoggedinNavbar';
+import LoggedinNavbar from '../../../components/navbar/LoggedinNavbar';
 
 const priceOptions = [
   { label: 'Max', value: 'max' },

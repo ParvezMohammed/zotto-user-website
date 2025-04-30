@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { StarIcon } from '@heroicons/react/20/solid';
-import LoggedinNavbar from './navbar/LoggedinNavbar';
-import Footer from './Footer';
+import LoggedinNavbar from '../../../components/navbar/LoggedinNavbar';
+import Footer from '../../../components/Footer';
 
 const ProductDetail = () => {
   const { productId } = useParams();
