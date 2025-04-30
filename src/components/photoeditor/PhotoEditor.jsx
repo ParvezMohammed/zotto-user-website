@@ -107,22 +107,22 @@ const ProfilePhotoEditor = ({ currentPhoto, onSave, onCancel }) => {
       {/* Backdrop */}
       <div className="fixed inset-0 bg-black bg-opacity-50"></div>
 
-      <div className="relative bg-white w-full max-w-xl max-h-[90vh] rounded-xl shadow-xl overflow-hidden flex flex-col z-10">
+      <div className="relative bg-white w-full max-w-xs sm:max-w-sm md:max-w-xl max-h-[95vh] rounded-xl shadow-xl overflow-hidden flex flex-col z-10 mx-2 sm:mx-0">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b">
-          <h2 className="text-lg font-semibold text-gray-800">Edit Profile Photo</h2>
+        <div className="flex items-center justify-between px-3 sm:px-6 py-3 sm:py-4 border-b">
+          <h2 className="text-base sm:text-lg font-semibold text-gray-800">Edit Profile Photo</h2>
           <button onClick={onCancel} className="text-2xl text-gray-500 hover:text-gray-700">&times;</button>
         </div>
 
         {/* Photo Upload Area */}
         <div
-          className={`flex-1 p-5 m-5 rounded-lg border-2 ${dragActive ? 'border-pink-400 bg-pink-50' : 'border-dashed border-gray-300'} flex flex-col items-center justify-center`}
+          className={`flex-1 p-3 sm:p-5 m-2 sm:m-5 rounded-lg border-2 ${dragActive ? 'border-pink-400 bg-pink-50' : 'border-dashed border-gray-300'} flex flex-col items-center justify-center`}
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
         >
           {previewUrl ? (
-            <div className="relative w-full max-w-xs aspect-square overflow-hidden rounded-md group">
+            <div className="relative w-full max-w-[220px] sm:max-w-xs aspect-square overflow-hidden rounded-md group">
               <img
                 src={previewUrl}
                 alt="Preview"
@@ -132,18 +132,18 @@ const ProfilePhotoEditor = ({ currentPhoto, onSave, onCancel }) => {
                   transform: `scale(${zoom}) rotate(${rotation}deg)`,
                 }}
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition">
-                <button onClick={() => fileInputRef.current.click()} className="bg-white text-pink-500 font-semibold px-4 py-2 rounded-md shadow">Change</button>
-                <button onClick={removePhoto} className="bg-white text-red-500 font-semibold px-4 py-2 rounded-md shadow">Remove</button>
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center gap-2 sm:gap-3 opacity-0 group-hover:opacity-100 transition">
+                <button onClick={() => fileInputRef.current.click()} className="bg-white text-pink-500 font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-md shadow text-xs sm:text-base">Change</button>
+                <button onClick={removePhoto} className="bg-white text-red-500 font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-md shadow text-xs sm:text-base">Remove</button>
               </div>
             </div>
           ) : (
             <div className="text-center">
-              <div className="text-5xl mb-3">📸</div>
-              <p className="text-gray-600">Drag & Drop your photo here</p>
-              <p className="text-gray-600">or</p>
-              <button onClick={() => fileInputRef.current.click()} className="bg-pink-500 text-white mt-3 px-5 py-2 rounded-md hover:bg-pink-600 transition">Choose from Computer</button>
-              <p className="text-xs text-gray-400 mt-2">Supports: JPG, PNG, GIF (Max 5MB)</p>
+              <div className="text-4xl sm:text-5xl mb-2 sm:mb-3">📸</div>
+              <p className="text-gray-600 text-xs sm:text-base">Drag & Drop your photo here</p>
+              <p className="text-gray-600 text-xs sm:text-base">or</p>
+              <button onClick={() => fileInputRef.current.click()} className="bg-pink-500 text-white mt-2 sm:mt-3 px-4 sm:px-5 py-1.5 sm:py-2 rounded-md hover:bg-pink-600 transition text-xs sm:text-base">Choose from Computer</button>
+              <p className="text-xs text-gray-400 mt-1 sm:mt-2">Supports: JPG, PNG, GIF (Max 5MB)</p>
             </div>
           )}
           <input
@@ -157,14 +157,14 @@ const ProfilePhotoEditor = ({ currentPhoto, onSave, onCancel }) => {
 
         {/* Controls */}
         {previewUrl && (
-          <div className="px-6 pb-6 overflow-y-auto max-h-52">
-            <div className="mb-4">
-              <label className="block font-medium text-gray-700 mb-2">Filters</label>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div className="px-3 sm:px-6 pb-3 sm:pb-6 overflow-y-auto max-h-40 sm:max-h-52">
+            <div className="mb-3 sm:mb-4">
+              <label className="block font-medium text-gray-700 mb-1 sm:mb-2 text-xs sm:text-base">Filters</label>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
                 {filters.map(f => (
                   <button
                     key={f.value}
-                    className={`px-3 py-2 text-sm rounded-md border ${filter === f.value ? 'bg-pink-500 text-white border-pink-500' : 'bg-white text-gray-700 border-gray-300'}`}
+                    className={`px-2 py-1 sm:px-3 sm:py-2 text-xs sm:text-sm rounded-md border ${filter === f.value ? 'bg-pink-500 text-white border-pink-500' : 'bg-white text-gray-700 border-gray-300'}`}
                     onClick={() => setFilter(f.value)}
                   >
                     {f.name}
@@ -173,8 +173,8 @@ const ProfilePhotoEditor = ({ currentPhoto, onSave, onCancel }) => {
               </div>
             </div>
 
-            <div className="mb-4">
-              <label className="block font-medium text-gray-700 mb-2">Zoom</label>
+            <div className="mb-3 sm:mb-4">
+              <label className="block font-medium text-gray-700 mb-1 sm:mb-2 text-xs sm:text-base">Zoom</label>
               <input
                 type="range"
                 min="0.5"
@@ -187,22 +187,22 @@ const ProfilePhotoEditor = ({ currentPhoto, onSave, onCancel }) => {
             </div>
 
             <div>
-              <label className="block font-medium text-gray-700 mb-2">Rotation</label>
-              <div className="flex gap-3">
-                <button onClick={() => rotateImage('left')} className="flex-1 px-4 py-2 border rounded-md hover:bg-gray-100">↺ Rotate Left</button>
-                <button onClick={() => rotateImage('right')} className="flex-1 px-4 py-2 border rounded-md hover:bg-gray-100">↻ Rotate Right</button>
+              <label className="block font-medium text-gray-700 mb-1 sm:mb-2 text-xs sm:text-base">Rotation</label>
+              <div className="flex gap-2 sm:gap-3 flex-col xs:flex-row sm:flex-row">
+                <button onClick={() => rotateImage('left')} className="flex-1 px-2 py-1 sm:px-4 sm:py-2 border rounded-md hover:bg-gray-100 text-xs sm:text-base">↺ Rotate Left</button>
+                <button onClick={() => rotateImage('right')} className="flex-1 px-2 py-1 sm:px-4 sm:py-2 border rounded-md hover:bg-gray-100 text-xs sm:text-base">↻ Rotate Right</button>
               </div>
             </div>
           </div>
         )}
 
         {/* Footer */}
-        <div className="flex justify-end gap-3 px-6 py-4 border-t bg-gray-50 rounded-b-xl">
-          <button onClick={onCancel} className="px-5 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-100">Cancel</button>
+        <div className="flex justify-end gap-2 sm:gap-3 px-3 sm:px-6 py-3 sm:py-4 border-t bg-gray-50 rounded-b-xl">
+          <button onClick={onCancel} className="px-3 sm:px-5 py-1.5 sm:py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-100 text-xs sm:text-base">Cancel</button>
           <button
             onClick={handleSave}
             disabled={!hasChanges() || isSaving}
-            className={`px-5 py-2 rounded-md font-semibold text-white ${!hasChanges() || isSaving ? 'bg-pink-300 cursor-not-allowed' : 'bg-pink-500 hover:bg-pink-600'} transition`}
+            className={`px-3 sm:px-5 py-1.5 sm:py-2 rounded-md font-semibold text-white text-xs sm:text-base ${!hasChanges() || isSaving ? 'bg-pink-300 cursor-not-allowed' : 'bg-pink-500 hover:bg-pink-600'} transition`}
           >
             {isSaving ? 'Saving...' : 'Save Profile Photo'}
           </button>

@@ -53,20 +53,20 @@ const OrderDetails = () => {
   };
 
   return (
-    <div className="p-6 md:p-12 bg-white max-w-5xl mx-auto">
-      <h2 className="text-lg md:text-xl font-medium text-gray-800 mb-6 md:mb-8 text-center">Order Details</h2>
+    <div className="w-full max-w-md mx-auto bg-white min-h-screen px-2 py-4">
+      <h2 className="text-lg font-semibold text-gray-800 mb-4 text-center">Order Details</h2>
 
       {/* Products Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10 mb-10">
+      <div className="grid grid-cols-1 gap-4 mb-6">
         {orderDetails.products.map(product => (
-          <div key={product.id} className="flex flex-col items-center w-full">
-            <img src={product.image} alt={product.name} className="w-24 h-24 md:w-32 md:h-32 object-contain mb-2" />
-            <h3 className="text-sm md:text-base font-medium text-gray-800 text-center mb-1">{product.name}</h3>
-            <p className="text-xs md:text-sm text-gray-500 mb-1">{product.quantity}</p>
-            <p className="text-xs md:text-sm text-gray-800 mb-2">{product.price}</p>
+          <div key={product.id} className="flex flex-col items-center w-full bg-gray-50 rounded-lg p-3">
+            <img src={product.image} alt={product.name} className="w-24 h-24 object-contain mb-2" />
+            <h3 className="text-base font-medium text-gray-800 text-center mb-1">{product.name}</h3>
+            <p className="text-xs text-gray-500 mb-1">{product.quantity}</p>
+            <p className="text-xs text-gray-800 mb-2">{product.price}</p>
             <button
               onClick={handleWriteReview}
-              className="text-pink-500 text-xs md:text-sm bg-none border-none cursor-pointer p-0"
+              className="text-pink-500 text-xs bg-none border-none cursor-pointer p-0 hover:underline"
             >
               Write a review
             </button>
@@ -75,7 +75,7 @@ const OrderDetails = () => {
       </div>
 
       {/* Order Info */}
-      <div className="mb-10">
+      <div className="mb-6">
         {[
           { label: 'Order Placed on', value: orderDetails.orderInfo.orderPlacedOn },
           { label: 'Order Delivered on', value: orderDetails.orderInfo.orderDeliveredOn },
@@ -83,16 +83,16 @@ const OrderDetails = () => {
           { label: 'Shipping Address', value: orderDetails.orderInfo.shippingAddress },
           { label: 'Payment Method', value: orderDetails.orderInfo.paymentMethod },
         ].map((item, index) => (
-          <div key={index} className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center mb-5">
-            <label className="text-sm md:text-base font-medium text-gray-800 mb-1 sm:mb-0">{item.label}</label>
-            <span className="text-sm md:text-base text-gray-800">{item.value}</span>
+          <div key={index} className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center mb-4">
+            <label className="text-sm font-medium text-gray-800 mb-1 sm:mb-0">{item.label}</label>
+            <span className="text-sm text-gray-800 break-words max-w-full text-right sm:text-left">{item.value}</span>
           </div>
         ))}
       </div>
 
       {/* Order Summary */}
-      <div className="max-w-full sm:max-w-sm mx-auto">
-        <h3 className="text-sm md:text-base font-medium text-gray-800 mb-4">Order Summary</h3>
+      <div className="w-full max-w-sm mx-auto bg-gray-50 rounded-lg p-4">
+        <h3 className="text-base font-medium text-gray-800 mb-3">Order Summary</h3>
 
         {[
           { label: 'Price Per Item', value: orderDetails.orderSummary.pricePerItem },
@@ -101,15 +101,15 @@ const OrderDetails = () => {
           { label: 'Delivery Charges', value: orderDetails.orderSummary.deliveryCharges },
           { label: 'Tax', value: orderDetails.orderSummary.tax },
         ].map((item, index) => (
-          <div key={index} className="flex justify-between items-center mb-3">
-            <label className="text-sm md:text-base font-medium text-gray-800">{item.label}</label>
-            <span className="text-sm md:text-base text-gray-800">{item.value}</span>
+          <div key={index} className="flex justify-between items-center mb-2">
+            <label className="text-sm text-gray-800">{item.label}</label>
+            <span className="text-sm text-gray-800">{item.value}</span>
           </div>
         ))}
 
-        <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-200">
-          <label className="text-sm md:text-base font-medium text-gray-800">Total Amount</label>
-          <span className="text-sm md:text-base font-medium text-gray-800">{orderDetails.orderSummary.totalAmount}</span>
+        <div className="flex justify-between items-center mt-4 pt-3 border-t border-gray-200">
+          <label className="text-base font-semibold text-gray-800">Total Amount</label>
+          <span className="text-base font-semibold text-gray-800">{orderDetails.orderSummary.totalAmount}</span>
         </div>
       </div>
     </div>

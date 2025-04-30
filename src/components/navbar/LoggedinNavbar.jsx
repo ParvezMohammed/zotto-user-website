@@ -107,14 +107,8 @@ const LoggedInNavbar = () => {
 
       {/* Notifications Modal */}
       {isNotificationsOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-lg w-96 p-6 relative">
-            <button
-              onClick={toggleNotifications}
-              className="absolute top-2 right-2 text-gray-700 hover:text-gray-900"
-            >
-              &times;
-            </button>
+        <div className="fixed inset-0 z-50">
+          <div className="absolute top-16 right-4 w-full max-w-sm bg-white rounded-lg shadow-lg overflow-hidden md:max-w-md">
             <Notifications onClose={toggleNotifications} />
           </div>
         </div>
