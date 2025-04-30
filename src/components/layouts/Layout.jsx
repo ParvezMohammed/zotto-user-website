@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     <div className="flex flex-col w-full min-h-screen ">
       <Header />
 
-      <main className="flex-grow w-full mt-1">
+      <main className="flex-grow w-full mt-16">
         {children ? children : <p>No content available</p>} 
       </main>
 
