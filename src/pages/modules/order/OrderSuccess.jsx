@@ -2,17 +2,14 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CheckIcon } from '@heroicons/react/24/outline';
 import confetti from 'canvas-confetti';
-import { useCart } from '../../../context/CartContext';
 import LoggedinNavbar from '../../../components/navbar/LoggedinNavbar';
-import Footer from '../../../components/Footer';
 
 const OrderSuccess = () => {
   const navigate = useNavigate();
-  const { clearCart } = useCart();
 
   useEffect(() => {
-    // Clear the cart
-    clearCart();
+    // Clear any cart data from localStorage if needed
+    localStorage.removeItem('cart');
 
     // Trigger confetti animation
     const duration = 3000;
@@ -44,7 +41,7 @@ const OrderSuccess = () => {
     }, 250);
 
     return () => clearInterval(interval);
-  }, [clearCart]);
+  }, []);
 
   const handleContinueShopping = () => {
     // Force a page reload while navigating to ensure fresh state
@@ -77,7 +74,6 @@ const OrderSuccess = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

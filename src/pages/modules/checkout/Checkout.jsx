@@ -1,179 +1,161 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCart } from '../../../context/CartContext';
 import LoggedinNavbar from '../../../components/navbar/LoggedinNavbar';
-import Footer from '../../../components/Footer';
+import { MapPinIcon } from '@heroicons/react/24/outline';
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const { cart, getCartTotal } = useCart();
-  const [paymentMethod, setPaymentMethod] = useState('cod');
   const [emergencyDelivery, setEmergencyDelivery] = useState(false);
-  const [isProcessing, setIsProcessing] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState(false);
 
-  const calculateSubtotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
+  // Get cart items from localStorage
+  const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
 
-  const calculateTotal = () => {
-    const subtotal = calculateSubtotal();
-    const emergencyCharge = emergencyDelivery ? 20 : 0;
-    return subtotal + emergencyCharge;
-  };
+  // Calculate totals
+  const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const deliveryCharges = 0; // Free delivery
+  const emergencyCharges = emergencyDelivery ? 20 : 0;
+  const total = subtotal + deliveryCharges + emergencyCharges;
 
-  const handleContinue = async () => {
-    try {
-      setIsProcessing(true);
-      // Simulate payment processing
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      // Navigate to success page
-      navigate('/order-success');
-    } catch (error) {
-      console.error('Error processing order:', error);
-      alert('There was an error processing your order. Please try again.');
-    } finally {
-      setIsProcessing(false);
-    }
-  };
-
-  if (cart.length === 0) {
-    navigate('/cart');
-    return null;
-  }
-
-  return (
-    <div className="min-h-screen flex flex-col">
-      <LoggedinNavbar />
-      <div className="flex-grow pt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Section - Delivery and Payment */}
-            <div className="lg:col-span-2 space-y-6">
-              {/* Delivery Address Section */}
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h2 className="text-xl font-semibold mb-4">1. Delivery Address Details</h2>
-                <div className="space-y-2">
-                  <p className="font-medium">Rosa Baumbach</p>
-                  <p className="text-gray-600">09755 MacGyver Neck</p>
-                  <p className="text-gray-600">New Lavinafurt</p>
-                  <p className="text-gray-600">50850-0995</p>
-                  <button className="text-pink-500 hover:text-pink-600">
-                    Change
-                  </button>
-                </div>
-              </div>
-
-              {/* Payment Method Section */}
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h2 className="text-xl font-semibold mb-4">2. Select Your Payment method</h2>
-                
-                {/* Payment Options */}
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      id="cod"
-                      name="payment"
-                      value="cod"
-                      checked={paymentMethod === 'cod'}
-                      onChange={(e) => setPaymentMethod(e.target.value)}
-                      className="h-4 w-4 text-pink-500 focus:ring-pink-400"
-                    />
-                    <label htmlFor="cod" className="ml-2">
-                      Cash on Delivery/Pay Online On Delivery
-                    </label>
-                  </div>
-
-                  {/* Emergency Delivery Option */}
-                  <div className="mt-6">
-                    <h3 className="font-medium mb-2">Emergency delivery</h3>
-                    <div className="flex items-center">
-                      <input
-                        type="radio"
-                        id="emergency"
-                        name="emergency"
-                        checked={emergencyDelivery}
-                        onChange={(e) => setEmergencyDelivery(e.target.checked)}
-                        className="h-4 w-4 text-pink-500 focus:ring-pink-400"
-                      />
-                      <label htmlFor="emergency" className="ml-2">
-                        ₹20 Emergency Delivery Charges
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Continue Button */}
-              <button
-                onClick={handleContinue}
-                disabled={isProcessing}
-                className="w-full bg-pink-500 text-white py-3 rounded-md hover:bg-pink-600 disabled:bg-pink-300 disabled:cursor-not-allowed"
-              >
-                {isProcessing ? 'Processing...' : 'Continue'}
+  const CartItem = ({ item }) => (
+    <div className="flex flex-col py-4 border-b">
+      <div className="flex items-center space-x-4">
+        <div className="flex-shrink-0 w-20 h-20">
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-full h-full object-cover rounded-lg"
+          />
+        </div>
+        <div className="flex-grow">
+          <h3 className="text-sm font-medium text-gray-900">{item.name}</h3>
+          <div className="text-xs text-gray-600 mt-1">
+            {item.pads} • {item.size}
+          </div>
+          <div className="flex items-center justify-between mt-2">
+            <div className="text-sm font-semibold text-gray-900">₹{item.price.toFixed(2)}</div>
+            <div className="flex items-center space-x-2">
+              <button className="w-6 h-6 flex items-center justify-center bg-pink-100 text-pink-600 rounded">
+                -
               </button>
-            </div>
-
-            {/* Right Section - Order Summary */}
-            <div className="lg:col-span-1">
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-                
-                {/* Product Summary */}
-                <div className="mb-6">
-                  {cart.map((item) => (
-                    <div key={item.id} className="flex items-center mb-4">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-16 h-16 object-cover rounded"
-                      />
-                      <div className="ml-4 flex-grow">
-                        <p className="font-medium">{item.name}</p>
-                        <p className="text-gray-600">Quantity: {item.quantity}</p>
-                        <p className="text-gray-900">₹{(item.price * item.quantity).toFixed(2)}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Price Details */}
-                <div className="border-t pt-4">
-                  <div className="flex justify-between mb-2">
-                    <span>Item({cart.length}):</span>
-                    <span>₹{calculateSubtotal().toFixed(2)}</span>
-                  </div>
-                  <div className="flex justify-between mb-2">
-                    <span>Delivery Charges</span>
-                    <span className="text-green-600">Free</span>
-                  </div>
-                  {emergencyDelivery && (
-                    <div className="flex justify-between mb-2">
-                      <span>Emergency Delivery</span>
-                      <span>₹20.00</span>
-                    </div>
-                  )}
-                  <div className="flex justify-between font-semibold text-lg mt-4 pt-4 border-t">
-                    <span>Order Total:</span>
-                    <span className="text-pink-500">₹{calculateTotal().toFixed(2)}</span>
-                  </div>
-                </div>
-
-                {/* Delivery Note */}
-                <div className="mt-6 p-4 bg-gray-50 rounded-lg text-center text-sm">
-                  <p>Note: Delivery on same day before ordering 12 PM</p>
-                </div>
-
-                {/* Security Note */}
-                <div className="mt-4 text-center text-sm text-gray-600">
-                  <p>100% Safe and Secure Payment. Easy Returns. Original Products</p>
-                </div>
-              </div>
+              <span className="text-sm">{item.quantity}</span>
+              <button className="w-6 h-6 flex items-center justify-center bg-pink-100 text-pink-600 rounded">
+                +
+              </button>
             </div>
           </div>
         </div>
       </div>
-      <Footer />
+      {/* Action Buttons */}
+      <div className="flex justify-end space-x-4 mt-3">
+        <button className="text-sm text-pink-600 font-medium hover:text-pink-700">
+          Save for Later
+        </button>
+        <button className="text-sm text-pink-600 font-medium hover:text-pink-700">
+          Remove
+        </button>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      <LoggedinNavbar />
+      <main className="flex-grow pt-16">
+        <div className="container mx-auto px-4 py-6">
+          <h2 className="text-xl font-semibold text-center mb-6">Order Summary</h2>
+
+          {/* Product Summary */}
+          <div className="mb-6 flex items-center justify-center">
+            <div className="w-32">
+              <img
+                src={cartItems[0]?.image || "/images/ordes1.png"}
+                alt="Product"
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+
+          {/* Order Details */}
+          <div className="space-y-4 mb-6">
+            <div className="flex justify-between items-center">
+              <span className="text-gray-600">Item(1) :</span>
+              <span className="text-gray-900">₹{subtotal.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-gray-600">Delivery Charges</span>
+              <span className="text-pink-600">Free</span>
+            </div>
+            <div className="flex justify-between items-center font-medium">
+              <span className="text-gray-600">Order Total :</span>
+              <span className="text-gray-900">₹{total.toFixed(2)}</span>
+            </div>
+          </div>
+
+          {/* Delivery Note */}
+          <div className="bg-gray-50 p-4 rounded-lg mb-6 text-center text-sm">
+            <p>Note: Delivery on same day before ordering 12 PM</p>
+          </div>
+
+          {/* Delivery Address */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold mb-4">Delivery Address Details</h3>
+            <div className="flex justify-between items-start">
+              <div className="space-y-1">
+                <p className="font-medium">Rosa Baumbach</p>
+                <p className="text-gray-600">09755 MacGyver Neck</p>
+                <p className="text-gray-600">New Lavinafurt</p>
+                <p className="text-gray-600">50850-0995</p>
+              </div>
+              <button className="text-pink-600 text-sm font-medium">
+                Change
+              </button>
+            </div>
+          </div>
+
+          {/* Payment Method */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold mb-4">Select Your Payment method</h3>
+            <div className="space-y-3">
+              <label className="flex items-center space-x-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={paymentMethod}
+                  onChange={(e) => setPaymentMethod(e.target.checked)}
+                  className="form-checkbox h-5 w-5 text-pink-600 rounded-full border-gray-300 focus:ring-pink-500"
+                />
+                <span className="text-gray-700">Cash on Delivery/Pay Online On Delivery</span>
+              </label>
+            </div>
+          </div>
+
+          {/* Emergency Delivery */}
+          <div className="mb-6">
+            <label className="flex items-center space-x-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={emergencyDelivery}
+                onChange={(e) => setEmergencyDelivery(e.target.checked)}
+                className="form-checkbox h-5 w-5 text-pink-600 rounded-full border-gray-300 focus:ring-pink-500"
+              />
+              <span className="text-gray-700">₹20 Emergency Delivery Charges</span>
+            </label>
+          </div>
+
+          {/* Security Note */}
+          <div className="text-xs text-gray-500 text-center mb-6">
+            100% Safe and Secure Payment. Easy Returns. Original Products
+          </div>
+
+          {/* Place Order Button */}
+          <button
+            onClick={() => navigate('/order-success')}
+            className="w-full bg-pink-600 text-white py-4 rounded-lg font-medium hover:bg-pink-700 transition-colors"
+          >
+            Place Order
+          </button>
+        </div>
+      </main>
     </div>
   );
 };

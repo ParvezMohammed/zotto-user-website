@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 import { Routes, Route } from "react-router-dom";
 import Layout from "../components/layouts/Layout.jsx";
 import Login from "../pages/auth/login/Login.jsx";
@@ -20,177 +21,14 @@ import OrderCancel from "../pages/modules/order/OrderCancel.jsx";
 import ViewOrderDetail from "../pages/modules/order/ViewOrderDetail.jsx";
 import TrackOrder from "../pages/modules/trackorder/TrackOrder.jsx";
 
-// cart 
-import { CartProvider } from '../context/CartContext.jsx';
-import Cart from "../components/Cart.jsx";
+const PublicRoute = ({ children }) => {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
-const PublicRoute = () => {
-  const [activeTab, setActiveTab] = useState("/");
+  if (isLoggedIn) {
+    return <Navigate to="/" />;
+  }
 
-  return (
-    <CartProvider>
-    
-    <Routes>
-      {/* Home */}
-      <Route
-        path="/"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <Home />
-          </Layout>
-        }
-      />
-      <Route
-        path="/cart"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <Cart />
-          </Layout>
-        }
-      />
-
-      {/* Authentication Routes */}
-      <Route
-        path="/login"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <Login />
-          </Layout>
-        }
-      />
-      <Route
-        path="/locationaccess"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <LocationAccess />
-          </Layout>
-        }
-      />
-      <Route
-        path="/verifyotp"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <VerifyOtp />
-          </Layout>
-        }
-      />
-      <Route
-        path="/logoutconfirm"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <LogoutConfirm />
-          </Layout>
-        }
-      />
-
-      {/* Other Routes */}
-      <Route
-        path="/aboutus"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <AboutUs />
-          </Layout>
-        }
-      />
-      <Route
-        path="/contactus"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <ContactUs />
-          </Layout>
-        }
-      />
-      <Route
-        path="/addreview"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <AddReview />
-          </Layout>
-        }
-      />
-      <Route
-        path="/privacypolicy"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <PrivacyPolicy />
-          </Layout>
-        }
-      />
-      <Route
-        path="/termscondition"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <TermsConditions />
-          </Layout>
-        }
-      />
-      <Route
-        path="/testimonials"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <Testimonials />
-          </Layout>
-        }
-      />
-      <Route
-        path="/profile"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <Profile />
-          </Layout>
-        }
-      />
-      <Route
-        path="/order-details/:orderId"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <OrderDetails />
-          </Layout>
-        }
-      />
-      <Route
-        path="/orders"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <Orders />
-          </Layout>
-        }
-      />
-      <Route
-        path="/order-confirm"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <OrderConfirmed />
-          </Layout>
-        }
-      />
-      <Route
-        path="/cancel-order"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <OrderCancel />
-          </Layout>
-        }
-      />
-      <Route
-        path="/view-detail"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <ViewOrderDetail />
-          </Layout>
-        }
-      />
-      <Route
-        path="/track-order"
-        element={
-          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <TrackOrder />
-          </Layout>
-        }
-      />
-    </Routes>
-    </CartProvider> 
-  );
+  return children;
 };
 
 export default PublicRoute;

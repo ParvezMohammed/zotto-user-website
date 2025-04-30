@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import LoggedinNavbar from '../../../components/navbar/LoggedinNavbar';
-import Footer from '../../../components/Footer';
 
 const Notifications = () => {
   const [activeTab, setActiveTab] = useState('unread');
@@ -130,7 +129,6 @@ const Notifications = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

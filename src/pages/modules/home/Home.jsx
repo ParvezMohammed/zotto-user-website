@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../../context/CartContext";
 import LoggedinNavbar from "../../../components/navbar/LoggedinNavbar";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("all");
   const navigate = useNavigate();
-  const { addToCart } = useCart();
 
   const brands = [
     { image: "./images/img1.png" },
@@ -95,15 +93,6 @@ export default function Home() {
     setVisibleTestimonials(testimonials.length);
   };
 
-  const handleAddToCart = (product) => {
-    addToCart(product);
-  };
-
-  const handleBuyNow = (product) => {
-    addToCart(product);
-    navigate('/checkout');
-  };
-
   return (
     <div className="min-h-screen flex flex-col">
       <LoggedinNavbar />
@@ -182,20 +171,12 @@ export default function Home() {
                         {product.name}
                       </h1>
                       <p className="text-sm text-gray-500">₹{product.price.toFixed(2)}</p>
-                      <div className="flex mt-4">
-                        <button 
-                          onClick={() => handleAddToCart(product)}
-                          className="w-1/2 px-4 py-2 text-center bg-pink-500 text-white text-sm rounded-l-md hover:bg-pink-600"
-                        >
-                          Add to Cart
-                        </button>
-                        <button 
-                          onClick={() => handleBuyNow(product)}
-                          className="w-1/2 py-2 text-center border-l border-gray-100 bg-pink-500 text-white text-sm rounded-r-md hover:bg-pink-600"
-                        >
-                          Buy Now
-                        </button>
-                      </div>
+                      <button 
+                        onClick={() => navigate(`/product/${product.id}`)}
+                        className="w-full mt-4 py-2 text-center bg-pink-500 text-white text-sm rounded-md hover:bg-pink-600"
+                      >
+                        View Details
+                      </button>
                     </div>
                   ))}
                 </div>

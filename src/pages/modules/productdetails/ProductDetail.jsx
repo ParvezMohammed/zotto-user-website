@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useCart } from '../../../context/CartContext';
+import { StarIcon } from '@heroicons/react/24/solid';
 import LoggedinNavbar from '../../../components/navbar/LoggedinNavbar';
-import Footer from '../../../components/Footer';
-import { StarIcon } from '@heroicons/react/20/solid';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
 
   // Mock product data (in a real app, this would come from an API)
@@ -173,6 +170,22 @@ const ProductDetail = () => {
 
   const product = products.find(p => p.id === parseInt(id));
 
+  // Get Buy It With products (4 products)
+  const buyItWithProducts = [
+    products.find(p => p.name === 'Wellcare Sanitary Pads'),
+    products.find(p => p.name === 'Softcare Sanitary Pads'),
+    products.find(p => p.name === 'Fresh n Free Sanitary Pads'),
+    products.find(p => p.name === 'My Lady Sanitary Pads')
+  ].filter(Boolean);
+
+  // Get Related Products (4 different products)
+  const relatedProducts = [
+    products.find(p => p.name === 'Vanessa Sanitary Pads'),
+    products.find(p => p.name === 'MRS Sanitary Pads (Combo of 4)'),
+    products.find(p => p.name === 'Bliss Sanitary Pads'),
+    products.find(p => p.name === 'Purly Sanitary Pads')
+  ].filter(Boolean);
+
   if (!product) {
     return (
       <div className="min-h-screen flex flex-col">
@@ -180,138 +193,186 @@ const ProductDetail = () => {
         <div className="flex-grow flex items-center justify-center">
           <p className="text-xl text-gray-600">Product not found (ID: {id})</p>
         </div>
-        <Footer />
       </div>
     );
   }
 
-  const handleAddToCart = () => {
-    addToCart({
-      ...product,
-      quantity: parseInt(quantity)
+  const handleAddToCart = (selectedProduct = product, selectedQuantity = quantity) => {
+    console.log('Add to cart:', {
+      ...selectedProduct,
+      quantity: parseInt(selectedQuantity)
     });
+    // TODO: Implement cart functionality
   };
 
-  const handleBuyNow = () => {
-    addToCart({
-      ...product,
-      quantity: parseInt(quantity)
-    });
+  const handleBuyNow = (selectedProduct = product, selectedQuantity = quantity) => {
+    // Create a cart item from the product
+    const cartItem = {
+      id: selectedProduct.id,
+      name: selectedProduct.name,
+      price: selectedProduct.price,
+      image: selectedProduct.image,
+      size: selectedProduct.size,
+      pads: selectedProduct.pads,
+      quantity: parseInt(selectedQuantity)
+    };
+
+    // Save to localStorage as a single-item cart
+    localStorage.setItem('cart', JSON.stringify([cartItem]));
+    
+    // Navigate to checkout
     navigate('/checkout');
   };
 
+  const ProductCard = ({ product }) => (
+    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+      <div className="p-3">
+        <div className="cursor-pointer" onClick={() => navigate(`/product/${product.id}`)}>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full aspect-square object-cover rounded-lg mb-3"
+          />
+          <h3 className="text-sm font-medium text-gray-900 mb-1 line-clamp-2">
+            {product.name}
+          </h3>
+          <div className="flex items-center space-x-2 mb-1">
+            <span className="text-xs text-gray-600">{product.pads}</span>
+            {product.size && <span className="text-xs text-gray-600">{product.size}</span>}
+          </div>
+          <div className="text-sm font-semibold text-gray-900 mb-3">
+            ₹{product.price.toFixed(2)}
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-2">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleAddToCart(product, 1);
+            }}
+            className="bg-pink-100 text-pink-600 px-2 py-1.5 rounded-md text-xs font-medium hover:bg-pink-200 transition-colors"
+          >
+            Add To Cart
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleBuyNow(product, 1);
+            }}
+            className="bg-pink-600 text-white px-2 py-1.5 rounded-md text-xs font-medium hover:bg-pink-700 transition-colors"
+          >
+            Buy Now
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <LoggedinNavbar />
-      <div className="flex-grow pt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-x-8">
+      <main className="flex-grow pt-16 md:pt-20">
+        <div className="container mx-auto px-4 py-6">
+          {/* Product Details Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Product Image */}
-            <div className="lg:max-w-lg lg:self-end">
-              <div className="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-center object-cover"
-                />
-              </div>
+            <div className="flex items-center justify-center">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full max-w-md rounded-lg"
+              />
             </div>
 
             {/* Product Info */}
-            <div className="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
-              <h1 className="text-3xl font-bold tracking-tight text-gray-900">{product.name}</h1>
+            <div className="space-y-4">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900">{product.name}</h1>
               
-              <div className="mt-3">
-                <h2 className="sr-only">Product information</h2>
-                <p className="text-3xl tracking-tight text-gray-900">₹{product.price.toFixed(2)}</p>
-              </div>
-
-              {/* Rating */}
-              <div className="mt-3">
+              <div className="flex items-center space-x-2">
                 <div className="flex items-center">
+                  <span className="text-lg font-semibold text-gray-900 mr-1">{product.rating}</span>
                   <div className="flex items-center">
-                    {[0, 1, 2, 3, 4].map((rating) => (
+                    {[...Array(5)].map((_, i) => (
                       <StarIcon
-                        key={rating}
-                        className={`${
-                          product.rating > rating ? 'text-yellow-400' : 'text-gray-300'
-                        } h-5 w-5 flex-shrink-0`}
+                        key={i}
+                        className={`h-5 w-5 ${
+                          i < Math.floor(product.rating)
+                            ? 'text-yellow-400'
+                            : i < product.rating
+                            ? 'text-yellow-400 opacity-50'
+                            : 'text-gray-300'
+                        }`}
                       />
                     ))}
                   </div>
-                  <p className="ml-3 text-sm text-gray-500">
-                    {product.rating} out of 5 stars
-                  </p>
                 </div>
+                <span className="text-sm text-gray-600">{product.pads}</span>
+                <span className="text-sm text-gray-600">{product.size}</span>
               </div>
 
-              {/* Product Details */}
-              <div className="mt-6">
-                <h3 className="sr-only">Description</h3>
-                <p className="text-base text-gray-900">{product.description}</p>
+              <div className="text-2xl font-bold text-gray-900">
+                ₹{product.price.toFixed(2)}
               </div>
 
-              <div className="mt-6">
-                <div className="flex items-center">
-                  <p className="text-base text-gray-900">Size:</p>
-                  <p className="ml-2 text-base text-gray-500">{product.size}</p>
+              <div className="space-y-2">
+                <div className="text-gray-600">
+                  {product.delivery}
                 </div>
-                <div className="flex items-center mt-2">
-                  <p className="text-base text-gray-900">Quantity:</p>
-                  <p className="ml-2 text-base text-gray-500">{product.pads}</p>
+                <div className="text-gray-900">
+                  {product.deliveryDate}
                 </div>
+                {product.stock <= 5 && (
+                  <div className="text-red-500">
+                    Only {product.stock} left in stock.
+                  </div>
+                )}
               </div>
 
-              {/* Delivery Info */}
-              <div className="mt-6">
-                <div className="flex items-center">
-                  <p className="text-base text-gray-900">{product.delivery}</p>
-                  <p className="ml-2 text-base text-gray-500">{product.deliveryDate}</p>
-                </div>
-                <p className="mt-1 text-sm text-gray-500">
-                  {product.stock} items left in stock
-                </p>
-              </div>
-
-              {/* Quantity Selector */}
-              <div className="mt-6">
-                <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">
-                  Select Quantity
-                </label>
-                <select
-                  id="quantity"
-                  value={quantity}
-                  onChange={(e) => setQuantity(Number(e.target.value))}
-                  className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm rounded-md"
-                >
-                  {[1, 2, 3, 4, 5].map((num) => (
-                    <option key={num} value={num}>
-                      {num}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Add to Cart and Buy Now buttons */}
-              <div className="mt-8 flex gap-4">
+              {/* Action Buttons */}
+              <div className="grid grid-cols-2 gap-4 pt-4">
                 <button
-                  onClick={handleAddToCart}
-                  className="flex-1 bg-pink-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+                  onClick={() => handleAddToCart()}
+                  className="bg-pink-100 text-pink-600 px-6 py-3 rounded-md text-sm font-medium hover:bg-pink-200 transition-colors"
                 >
-                  Add to Cart
+                  Add To Cart
                 </button>
                 <button
-                  onClick={handleBuyNow}
-                  className="flex-1 bg-pink-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+                  onClick={() => handleBuyNow()}
+                  className="bg-pink-600 text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-pink-700 transition-colors"
                 >
                   Buy Now
                 </button>
               </div>
+
+              {/* About This Item */}
+              <div className="pt-6">
+                <h2 className="text-xl font-bold text-gray-900 mb-3">About This Item</h2>
+                <p className="text-gray-600">{product.description}</p>
+              </div>
             </div>
           </div>
+
+          {/* Buy It With Section */}
+          <section className="mt-12 border-t pt-8">
+            <h2 className="text-xl font-bold text-gray-900 mb-6">Buy It With</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {buyItWithProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </section>
+
+          {/* Related Products Section */}
+          <section className="mt-12 border-t pt-8">
+            <h2 className="text-xl font-bold text-gray-900 mb-6">Related Products</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {relatedProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </section>
         </div>
-      </div>
-      <Footer />
+      </main>
     </div>
   );
 };
