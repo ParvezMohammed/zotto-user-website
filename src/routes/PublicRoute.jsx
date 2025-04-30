@@ -13,17 +13,23 @@ import ContactUs from "../pages/modules/contactus/ContactUs.jsx";
 import AboutUs from "../pages/modules/aboutus/AboutUs.jsx";
 import Testimonials from "../pages/modules/testimonial/Testimonial.jsx";
 import Profile from "../pages/modules/profile/profile.jsx";
-import OrderDetails from "../pages/modules/orderdetails/OrderDetails.jsx";
+import OrderDetails from "../pages/modules/order/OrderDetails.jsx";
 import Orders from "../pages/modules/order/Order.jsx";
-import OrderConfirmed from "../pages/modules/orderconfirm/OrderConfirm.jsx";
-import OrderCancel from "../pages/modules/ordercancel/OrderCancel.jsx";
-import ViewOrderDetail from "../pages/modules/vieworderdetail/ViewOrderDetail.jsx";
+import OrderConfirmed from "../pages/modules/order/OrderConfirm.jsx";
+import OrderCancel from "../pages/modules/order/OrderCancel.jsx";
+import ViewOrderDetail from "../pages/modules/order/ViewOrderDetail.jsx";
 import TrackOrder from "../pages/modules/trackorder/TrackOrder.jsx";
+
+// cart 
+import { CartProvider } from '../context/CartContext.jsx';
+import Cart from "../components/Cart.jsx";
 
 const PublicRoute = () => {
   const [activeTab, setActiveTab] = useState("/");
 
   return (
+    <CartProvider>
+    
     <Routes>
       {/* Home */}
       <Route
@@ -31,6 +37,14 @@ const PublicRoute = () => {
         element={
           <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
             <Home />
+          </Layout>
+        }
+      />
+      <Route
+        path="/cart"
+        element={
+          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+            <Cart />
           </Layout>
         }
       />
@@ -175,6 +189,7 @@ const PublicRoute = () => {
         }
       />
     </Routes>
+    </CartProvider> 
   );
 };
 
