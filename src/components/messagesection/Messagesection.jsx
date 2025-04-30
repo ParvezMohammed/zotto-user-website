@@ -2,7 +2,7 @@ import React from 'react';
 
 const PolicySection = ({ title, points }) => {
   return (
-    <div className="bg-white pt-2 pb-4 px-4 sm:px-6 md:px-10 lg:px-[130px]">
+    <div className="bg-white pt-8 pb-4 mt-16 px-4 sm:px-6 md:px-10 lg:px-[130px]">
       <div className="w-full text-black">
         <h2 className="font-inter font-medium text-[22px] sm:text-[26px] md:text-[32px] mb-4 pb-2 inline-block border-b-2 border-black">
           {title}

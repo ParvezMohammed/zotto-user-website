@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoggedinNavbar from './navbar/LoggedinNavbar';
-import Footer from './Footer';
 import { MapPinIcon } from '@heroicons/react/24/outline';
 
 const RemoveModal = ({ open, onClose, onConfirm }) => {

@@ -1,6 +1,6 @@
 // src/pages/TermsConditions.jsx
 import React from 'react';
-import PolicySection from '../../../components/messagesection';
+import PolicySection from '../../../components/messagesection/Messagesection';
 
 const termsPoints = [
   "By accessing or using our services, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must refrain from using our services. These terms apply to all users of the service, including but not limited to browsers, vendors, customers, merchants, and content contributors. It is your responsibility to review these terms periodically for any changes.",

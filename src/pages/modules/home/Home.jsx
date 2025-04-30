@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LoggedinNavbar from "../../../components/navbar/LoggedinNavbar";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("all");
@@ -95,8 +94,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <LoggedinNavbar />
-      <div className="flex-grow mt-20">
+       <div className="flex-grow mt-20">
         {/* Hero Section */}
         <section>
           <div className="w-full">

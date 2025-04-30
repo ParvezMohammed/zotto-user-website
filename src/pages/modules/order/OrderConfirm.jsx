@@ -12,7 +12,7 @@ const OrderConfirmed=()=>{
       navigate('/trackorder');
     };
     return(
-        <div>
+        <div className="">
             <p>
                Order Summary<br/>
             </p>

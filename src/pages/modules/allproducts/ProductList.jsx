@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FunnelIcon } from '@heroicons/react/24/outline';
-import LoggedinNavbar from '../../../components/navbar/LoggedinNavbar';
 
 const priceOptions = [
   { label: 'Max', value: 'max' },
@@ -177,7 +176,7 @@ const ProductList = () => {
 
   return (
     <>
-      <LoggedinNavbar />
+     
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Header */}
         <div className="flex justify-between items-center mb-6 relative">

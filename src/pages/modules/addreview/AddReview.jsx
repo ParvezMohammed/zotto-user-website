@@ -7,11 +7,26 @@ const AddReview = () => {
   const [review, setReview] = useState('');
 
   return (
-    <div className="bg-white min-h-screen py-6 px-4 sm:px-6 md:px-10 lg:px-[130px]">
-      {/* Add a Review Title with underline */}
-      <h1 className="text-xl sm:text-2xl font-semibold text-black mb-4 pb-2 border-b-2 border-black inline-block">
-        Add a Review
-      </h1>
+    <div className="bg-white min-h-screen pt-8 mt-16 py-6 px-4 sm:px-6 md:px-10 lg:px-[130px]">
+{/* Product Image and Name — ONLY for Mobile */}
+{/* Title Wrapper */}
+<div className="sm:text-left text-center">
+  <h1 className="text-xl sm:text-2xl font-semibold text-black mb-4 pb-0 sm:pb-2 border-0 sm:border-b-2 sm:border-black inline-block">
+    Add Review
+  </h1>
+</div>
+
+<div className="block sm:hidden flex flex-col items-center mb-6">
+  <img
+    src="./images/orders4.png"
+    alt="Product"
+    className="w-32 h-32 object-cover rounded-lg mb-2"
+  />
+  <h2 className="text-lg font-poppins text-black text-center">
+    Softcare Sanitary Pads
+  </h2>
+</div>
+    
 
       {/* Review box with background */}
       <div className="bg-[#EEEEEE] rounded-2xl border border-gray-300 p-4 sm:p-6">
@@ -47,7 +62,7 @@ const AddReview = () => {
 
       {/* Submit Button */}
       <div className="flex justify-end mt-4">
-        <button className="bg-[#FF6584] text-white px-6 py-2 rounded-md text-sm sm:text-base hover:bg-pink-600 transition">
+        <button className="bg-[#FF6584] text-white px-6 py-2 rounded-lg text-sm sm:text-base hover:bg-pink-600 transition">
           Submit
         </button>
       </div>

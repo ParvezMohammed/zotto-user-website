@@ -53,7 +53,7 @@ const Orders = () => {
   };
 
   return (
-    <div className="p-5 bg-white">
+    <div className="p-5 bg-white pt-8 mt-16">
       <table className="w-full table-collapse">
         <thead>
           <tr className="bg-gray-100">

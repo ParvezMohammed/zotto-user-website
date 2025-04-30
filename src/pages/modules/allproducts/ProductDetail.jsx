@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { StarIcon } from '@heroicons/react/20/solid';
-import LoggedinNavbar from '../../../components/navbar/LoggedinNavbar';
-import Footer from '../../../components/Footer';
 
 const ProductDetail = () => {
   const { productId } = useParams();
@@ -152,7 +150,6 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <LoggedinNavbar />
       <main className="flex-grow pt-16 md:pt-20">
         <div className="container mx-auto px-4 py-6">
           {/* Product Details Section */}
@@ -255,7 +252,6 @@ const ProductDetail = () => {
           </section>
         </div>
       </main>
-      <Footer />
     </div>
   );
 };

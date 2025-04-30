@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CheckIcon } from '@heroicons/react/24/outline';
 import confetti from 'canvas-confetti';
-import LoggedinNavbar from '../../../components/navbar/LoggedinNavbar';
 
 const OrderSuccess = () => {
   const navigate = useNavigate();
@@ -50,7 +49,7 @@ const OrderSuccess = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <LoggedinNavbar />
+   
       <div className="flex-grow flex items-center justify-center bg-gray-50 px-4 sm:px-6 lg:px-8 pt-20">
         <div className="max-w-3xl w-full space-y-8 text-center py-12">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-pink-100 mb-8">

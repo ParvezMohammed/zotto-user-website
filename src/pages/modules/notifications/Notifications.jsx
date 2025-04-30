@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import LoggedinNavbar from '../../../components/navbar/LoggedinNavbar';
 
 const Notifications = () => {
   const [activeTab, setActiveTab] = useState('unread');
@@ -60,7 +59,7 @@ const Notifications = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <LoggedinNavbar />
+    
       <div className="flex-grow pt-16 bg-gray-50">
         <div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
           <div className="bg-white rounded-lg shadow">

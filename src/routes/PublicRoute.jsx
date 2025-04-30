@@ -10,7 +10,7 @@ import AddReview from "../pages/modules/addreview/AddReview.jsx";
 import PrivacyPolicy from "../pages/modules/privacypolicy/PrivacyPolicy.jsx";
 import TermsConditions from "../pages/modules/termsandcondition/Terms&condition.jsx";
 import ContactUs from "../pages/modules/contactus/ContactUs.jsx";
-import AboutUs from "../pages/modules/allproducts/aboutus/AboutUs.jsx";
+import AboutUs from "../pages/modules/aboutus/AboutUs.jsx";
 import Testimonials from "../pages/modules/testimonial/Testimonial.jsx";
 import Profile from "../pages/modules/profile/profile.jsx";
 import OrderDetails from "../pages/modules/order/OrderDetails.jsx";
@@ -67,7 +67,7 @@ const PublicRoute = () => {
         }
       />
       <Route
-        path="/logoutconfirm"
+        path="/logout"
         element={
           <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
             <LogoutConfirm />

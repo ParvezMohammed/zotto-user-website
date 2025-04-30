@@ -1,5 +1,4 @@
 import React from 'react';
-import LoggedInNavbar from '../../../components/navbar/LoggedinNavbar';
 import ProductList from './ProductList';
 
 const AllProducts = () => {
