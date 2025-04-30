@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapPinIcon } from '@heroicons/react/24/outline';
+import ordes1 from '../../../assets/images/ordes1.png';
+import orders2 from '../../../assets/images/orders2.png';
+import orders3 from '../../../assets/images/orders3.png';
+import orders4 from '../../../assets/images/orders4.png';
 
 const RemoveModal = ({ open, onClose, onConfirm }) => {
   if (!open) return null;
@@ -36,7 +40,7 @@ const Cart = () => {
       name: "Anytime Sanitary Pads",
       price: 256.00,
       quantity: 1,
-      image: "/images/ordes1.png",
+      image:ordes1,
       pads: "10 Pads",
       size: "XL",
       delivery: "Delivery by Tue Mar 25 | ₹40Free"
@@ -46,7 +50,7 @@ const Cart = () => {
       name: "Ladysoft Sanitary Pads",
       price: 240.00,
       quantity: 1,
-      image: "/images/orders2.png",
+      image: orders2,
       pads: "8 Pads",
       size: "XL",
       delivery: "Delivery by Tue Mar 25 | ₹40Free"
@@ -56,7 +60,7 @@ const Cart = () => {
       name: "Petals Sanitary Pads (Combo of 4)",
       price: 1200.00,
       quantity: 1,
-      image: "/images/orders3.png",
+      image: orders3,
       pads: "Each 10 Pads",
       size: "XL",
       delivery: "Delivery by Tue Mar 25 | ₹40Free"
@@ -66,7 +70,7 @@ const Cart = () => {
       name: "Wellcare Sanitary Pads",
       price: 200.00,
       quantity: 1,
-      image: "/images/orders4.png",
+      image: orders4,
       pads: "10 Pads",
       size: "XL",
       delivery: "Out of Stock"
@@ -127,7 +131,7 @@ const Cart = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      <LoggedinNavbar />
+  
       {/* Delivery Address Header */}
       <div className="bg-white border-b">
         <div className="container mx-auto px-4 py-4 mt-16">

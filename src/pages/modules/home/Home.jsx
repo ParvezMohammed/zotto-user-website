@@ -1,90 +1,111 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import img1 from '../../../assets/images/img1.png';
+import img2 from '../../../assets/images/img2.png';
+import img3 from '../../../assets/images/img3.png';
+import img4 from '../../../assets/images/img4.png';
+import img5 from '../../../assets/images/img5.png';
+
+import product1 from '../../../assets/images/ordes1.png';
+import product2 from '../../../assets/images/orders2.png';
+import product3 from '../../../assets/images/orders3.png';
+import product4 from '../../../assets/images/orders4.png';
+import phone from '../../../assets/images/phone.png';
+import address from '../../../assets/images/address.png';
+import sectionlocation from '../../../assets/images/sectionlocation.png';
+
+import deliveryImg from '../../../assets/images/delivery.png';
+import sectionRight from '../../../assets/images/sectionright.png';
+import sectionLeft from '../../../assets/images/sectionleft.png';
+import section8right from '../../../assets/images/section8right.png';
+import screen1 from '../../../assets/images/screen1.png';
+
+import user1 from '../../../assets/images/user1.png';
+import user2 from '../../../assets/images/user2.png';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("all");
   const navigate = useNavigate();
 
   const brands = [
-    { image: "./images/img1.png" },
-    { image: "./images/img2.png" },
-    { image: "./images/img3.png" },
-    { image: "./images/img4.png" },
-    { image: "./images/img5.png" },
+    { image: img1 },
+    { image: img2 },
+    { image: img3 },
+    { image: img4 },
+    { image: img5 },
   ];
+  
 
   const products = [
     {
       id: 1,
       name: "Regular Sanitary Pads (Pack of 10)",
-      price: 256.00,
+      price: 256.0,
       pads: "10 Pads",
       size: "XL",
-      image: "./images/ordes1.png",
+      image: product1,
     },
     {
       id: 2,
       name: "Deluxe Sanitary Pads (Pack of 8)",
-      price: 299.00,
+      price: 299.0,
       pads: "8 Pads",
       size: "XL",
-      image: "./images/orders2.png",
+      image: product2,
     },
     {
       id: 3,
       name: "Premium Sanitary Pads (Pack of 12)",
-      price: 349.00,
+      price: 349.0,
       pads: "12 Pads",
       size: "XL",
-      image: "./images/orders3.png",
+      image: product3,
     },
     {
       id: 4,
       name: "Jumbo Sanitary Pads (Bundle of 4)",
-      price: 599.00,
+      price: 599.0,
       pads: "4 Pads",
       size: "XL",
-      image: "./images/orders4.png",
+      image: product4,
     },
   ];
-
+  
   const testimonials = [
     {
       id: 1,
       rating: 5,
-      text: "Whisper Sanitary Pads provide exceptional comfort and reliable protection, ensuring you feel fresh and secure all day long.",
+      text: "Whisper Sanitary Pads provide exceptional comfort...",
       author: "Himani Raut",
       role: "Satisfied Customer, Himani",
-      img: "./images/user1.png",
+      img: user1,
     },
     {
       id: 2,
       rating: 5,
-      text: "I swear by Whisper Sanitary Pads. They're incredibly comfortable and provide the best protection!",
+      text: "I swear by Whisper Sanitary Pads...",
       author: "Nandini Nahata",
       role: "Happy customer, Nandini",
-      avatar: "/api/placeholder/50/50",
-      img: "./images/user2.png",
+      img: user2,
     },
     {
       id: 3,
       rating: 5,
-      text: "These pads changed my experience completely. I can finally go about my day without worrying.",
+      text: "These pads changed my experience completely...",
       author: "Priya Sharma",
       role: "Loyal Customer",
-      avatar: "/api/placeholder/50/50",
-      img: "./images/user1.png",
+      img: user1,
     },
     {
       id: 4,
       rating: 5,
-      text: "The wing design ensures no leakage whatsoever. Absolutely recommend to everyone!",
+      text: "The wing design ensures no leakage...",
       author: "Anjali Patel",
       role: "Verified Buyer",
-      avatar: "/api/placeholder/50/50",
-      img: "./images/user2.png",
+      img: user2,
     },
   ];
+  
 
   const [visibleTestimonials, setVisibleTestimonials] = useState(2);
 
@@ -98,7 +119,7 @@ export default function Home() {
         {/* Hero Section */}
         <section>
           <div className="w-full">
-            <img src="./images/screen1.png" className="w-full h-auto" />
+            <img src={screen1} className="w-full h-auto" />
           </div>
         </section>
         {/* Brands Section */}
@@ -131,8 +152,7 @@ export default function Home() {
               {/* Left side with image */}
               <div className="w-full md:w-1/2">
                 <img
-                  src="./images/delivery.png"
-                  alt="Woman with product"
+                  src={deliveryImg}                  alt="Woman with product"
                   className="w-full h-auto"
                 />
               </div>
@@ -230,7 +250,7 @@ export default function Home() {
             {/* Right Side - Image */}
             <div className="w-full md:w-1/2">
               <img
-                src="./images/sectionright.png"
+              src={sectionRight}
                 alt="Premium product"
                 className="rounded-lg w-full h-auto"
               />
@@ -242,7 +262,7 @@ export default function Home() {
         <div className="py-12 bg-white flex flex-col md:flex-row items-center justify-between px-6">
           <div className="w-full md:w-1/2 flex items-center justify-center mb-8 md:mb-0">
             <img
-              src="./images/sectionleft.png"
+              src={sectionLeft}
               alt="Impact image"
               className="w-full h-auto"
             />
@@ -340,7 +360,7 @@ export default function Home() {
 
             <div className="md:w-1/2 pl-4">
               <img
-                src="/images/section8right.png"
+                src={section8right}
                 alt="Store shelf displaying various sanitary pad products organized by brand and type"
                 className="rounded-lg shadow-md w-full"
               />
@@ -375,7 +395,7 @@ export default function Home() {
 
               <div className="flex items-center">
                 <div className="mr-4 text-gray-700 w-6 h-6 flex items-center justify-center">
-                  <img src="/images/phone.png" alt="Phone Icon" />
+                  <img src={phone} alt="Phone Icon" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg">Phone</h3>
@@ -385,7 +405,7 @@ export default function Home() {
 
               <div className="flex items-center">
                 <div className="mr-4 text-gray-700 w-6 h-6 flex items-center justify-center">
-                  <img src="/images/address.png" alt="Address Icon" />
+                  <img src={address} alt="Address Icon" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg">Office</h3>
@@ -398,7 +418,7 @@ export default function Home() {
           {/* Map Section */}
           <div className="w-full h-64 md:h-[719px] bg-gray-200">
             <img
-              src="/images/sectionlocation.png"
+              src={sectionlocation}
               alt="Location map"
               className="w-full h-full object-cover"
             />

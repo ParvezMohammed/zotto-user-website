@@ -2,10 +2,20 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FunnelIcon } from '@heroicons/react/24/outline';
 
+import orderImg1 from '../../../assets/images/ordes1.png';
+import orderImg2 from '../../../assets/images/orders2.png';
+import orderImg3 from '../../../assets/images/Rectangle13.png';
+import orderImg4 from '../../../assets/images/Rectangle14.png';
+import orderImg5 from '../../../assets/images/Rectangle11.png';
+import orderImg6 from '../../../assets/images/Rectangle12.png';
+import orderImg7 from '../../../assets/images/orders3.png';
+import orderImg8 from '../../../assets/images/orders4.png';
+
 const priceOptions = [
   { label: 'Max', value: 'max' },
   { label: 'Min', value: 'min' },
 ];
+
 const sizeOptions = [
   { label: 'XXL', value: 'xxl' },
   { label: 'XL', value: 'xl' },
@@ -13,6 +23,7 @@ const sizeOptions = [
   { label: 'M', value: 'm' },
   { label: 'S', value: 's' },
 ];
+
 const brandOptions = [
   { label: 'Vanessa Sanitary Pads', value: 'vanessa' },
   { label: 'Wellcare Sanitary Pads', value: 'wellcare' },
@@ -39,59 +50,58 @@ const ProductList = () => {
       name: 'Anytime Sanitary Pads',
       pads: '10 Pads',
       price: 256.00,
-      image: '/images/ordes1.png'
+      image: orderImg1,
     },
     {
       id: 2,
       name: 'Ladysoft Sanitary Pads',
       pads: '8 Pads',
       price: 250.00,
-      image: '/images/orders2.png'
+      image: orderImg2,
     },
     {
       id: 3,
       name: 'Bliss Sanitary Pads',
       pads: '12 Pads',
       price: 480.00,
-      image: '/images/Rectangle13.png'
+      image: orderImg3,
     },
     {
       id: 4,
       name: 'Purly Sanitary Pads',
       pads: '40 Pads',
       price: 1600.00,
-      image: '/images/Rectangle14.png'
+      image: orderImg4,
     },
     {
       id: 5,
       name: 'Vanessa Sanitary Pads',
       pads: '10 Pads',
       price: 300.00,
-      image: '/images/Rectangle11.png'
+      image: orderImg5,
     },
     {
       id: 6,
       name: 'MRS Sanitary Pads (Combo of 4)',
       pads: '16 Pads',
       price: 500.00,
-      image: '/images/Rectangle12.png'
+      image: orderImg6,
     },
     {
       id: 7,
       name: 'Petals Sanitary Pads (Combo of 4)',
       pads: 'Each 10 Pads',
       price: 1200.00,
-      image: '/images/orders3.png'
+      image: orderImg7,
     },
     {
       id: 8,
       name: 'StaySure Sanitary Pads',
       pads: 'Each 8 Pads',
       price: 240.00,
-      image: '/images/orders4.png'
+      image: orderImg8,
     }
-  ];
-
+  ]
   const handleAddToCart = (product) => {
     console.log('Add to cart:', product);
     // TODO: Implement cart functionality

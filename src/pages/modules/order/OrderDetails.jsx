@@ -1,20 +1,20 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-
+import orders4 from "../../../assets/images/orders4.png"
 // Mock database of orders
 const ordersDatabase = {
   1: {
     products: [
       {
         id: 1,
-        image: '/images/orders4.png',
+        image: orders4,
         name: 'Softcare Sanitary Pads',
         quantity: '10 Pads',
         price: '₹123.00'
       },
       {
         id: 2,
-        image: '/images/orders4.png',
+        image: orders4,
         name: 'Softcare Sanitary Pads',
         quantity: '10 Pads',
         price: '₹123.00'

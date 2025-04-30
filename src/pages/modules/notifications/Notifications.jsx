@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 
+import orders1 from '../../../assets/images/ordes1.png';
+import orders2 from '../../../assets/images/orders2.png';
+import orders3 from '../../../assets/images/orders3.png';
+import rectangle11 from '../../../assets/images/Rectangle11.png';
+import rectangle12 from '../../../assets/images/Rectangle12.png';
+
 const Notifications = () => {
   const [activeTab, setActiveTab] = useState('unread');
 
@@ -8,42 +14,42 @@ const Notifications = () => {
     {
       id: 1,
       title: "Out for Delivery! Anytime Sanitary Pads ₹256.00",
-      image: "/images/ordes1.png",
+      image: orders1,
       time: "2 hours ago",
       isRead: false
     },
     {
       id: 2,
       title: "Your order will be reach soon, Fresh n Free Sanitary Pads",
-      image: "/images/orders2.png",
+      image: orders2,
       time: "3 hours ago",
       isRead: false
     },
     {
       id: 3,
       title: "New Diwali offers will be coming soon. Stay connected. Update will be send to your registered phone number.",
-      image: "/images/Rectangle11.png",
+      image: rectangle11,
       time: "5 hours ago",
       isRead: false
     },
     {
       id: 4,
       title: "New Arrivals ......",
-      image: "/images/Rectangle12.png",
+      image: rectangle12,
       time: "6 hours ago",
       isRead: false
     },
     {
       id: 5,
       title: "Out for Delivery! Anytime Sanitary Pads ₹256.00",
-      image: "/images/ordes1.png",
+      image: orders1,
       time: "1 day ago",
       isRead: true
     },
     {
       id: 6,
       title: "Your previous order has been delivered successfully",
-      image: "/images/orders3.png",
+      image: orders3,
       time: "2 days ago",
       isRead: true
     }

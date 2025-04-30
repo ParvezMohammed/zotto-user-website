@@ -1,4 +1,4 @@
-// src/pages/TermsConditions.jsx
+
 import React from 'react';
 import PolicySection from '../../../components/messagesection/Messagesection';
 

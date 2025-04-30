@@ -22,7 +22,7 @@ import TrackOrder from "../pages/modules/trackorder/TrackOrder.jsx";
 import AllProducts from "../pages/modules/allproducts/AllProducts.jsx";
 import ProductDetail from "../pages/modules/allproducts/ProductDetail.jsx";
 import Checkout from "../pages/modules/checkout/Checkout.jsx";
-import Cart from "../components/Cart.jsx";
+import Cart from "../pages/modules/cart/Cart.jsx";
 import OrderSuccess from "../pages/modules/order/OrderSuccess.jsx";
 import Notification from "../pages/modules/notifications/Notifications.jsx";
 

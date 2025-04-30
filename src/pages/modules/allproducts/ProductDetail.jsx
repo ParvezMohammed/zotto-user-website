@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { StarIcon } from '@heroicons/react/20/solid';
+import rect11 from '../../../assets/images/Rectangle11.png';
+import rect12 from '../../../assets/images/Rectangle12.png';
+import rect13 from '../../../assets/images/Rectangle13.png';
+import rect14 from '../../../assets/images/Rectangle14.png';
+import productImg1 from '../../../assets/images/Rectangle11.png';
+import productImg2 from '../../../assets/images/Rectangle12.png';
+import productImg3 from '../../../assets/images/Rectangle13.png';
+import productImg4 from '../../../assets/images/Rectangle14.png';
+import ordes1 from '../../../assets/images/ordes1.png';
 
 const ProductDetail = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
-
+      
   // Buy It With products data
   const buyWithProducts = [
     {
@@ -14,7 +23,7 @@ const ProductDetail = () => {
       pads: '10 Pads',
       price: 200.00,
       size: 'XL',
-      image: '/images/Rectangle11.png'
+      image: productImg1,
     },
     {
       id: 2,
@@ -22,7 +31,7 @@ const ProductDetail = () => {
       pads: '4 Pads',
       price: 150.00,
       size: 'XL',
-      image: '/images/Rectangle12.png'
+      image: productImg2,
     },
     {
       id: 3,
@@ -30,7 +39,7 @@ const ProductDetail = () => {
       pads: '8 Pads',
       price: 230.00,
       size: 'XL',
-      image: '/images/Rectangle13.png'
+      image: productImg3,
     },
     {
       id: 4,
@@ -38,11 +47,11 @@ const ProductDetail = () => {
       pads: '16 Pads',
       price: 640.00,
       size: 'XL',
-      image: '/images/Rectangle14.png'
-    }
+      image: productImg4,
+    },
   ];
 
-  // Related Products data
+
   const relatedProducts = [
     {
       id: 5,
@@ -50,7 +59,7 @@ const ProductDetail = () => {
       pads: '10 Pads',
       price: 300.00,
       size: 'XL',
-      image: '/images/Rectangle11.png'
+      image: rect11
     },
     {
       id: 6,
@@ -58,7 +67,7 @@ const ProductDetail = () => {
       pads: '16 Pads',
       price: 500.00,
       size: 'XL',
-      image: '/images/Rectangle12.png'
+      image: rect12
     },
     {
       id: 7,
@@ -66,7 +75,7 @@ const ProductDetail = () => {
       pads: '12 Pads',
       price: 480.00,
       size: 'XL',
-      image: '/images/Rectangle13.png'
+      image: rect13
     },
     {
       id: 8,
@@ -74,10 +83,9 @@ const ProductDetail = () => {
       pads: '40 Pads',
       price: 1600.00,
       size: 'XL',
-      image: '/images/Rectangle14.png'
+      image: rect14
     }
   ];
-
   // Current product data
   const product = {
     id: parseInt(productId),
@@ -87,7 +95,7 @@ const ProductDetail = () => {
     price: 256.00,
     size: 'XL',
     rating: 4.5,
-    image: '/images/ordes1.png',
+    image: ordes1,
     deliveryDate: '24 March 2025',
     stock: 2
   };

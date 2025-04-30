@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCircle } from 'react-icons/fa';
+import meeting from "../../../assets/images/meeting.png"
 
 const AboutUs = () => {
   return (
@@ -7,7 +8,7 @@ const AboutUs = () => {
       
       <div className="relative w-full h-[180px] sm:h-[350px] md:h-[400px] overflow-hidden">
       <img
-          src="../images/meeting.png"
+          src={meeting}
           alt="About Us"
           className="w-full h-full object-cover"
         />

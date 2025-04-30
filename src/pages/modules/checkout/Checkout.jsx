@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapPinIcon } from '@heroicons/react/24/outline';
+import ordes1 from '../../../assets/images/ordes1.png';
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -59,21 +60,22 @@ const Checkout = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <LoggedinNavbar />
+     
       <main className="flex-grow pt-16">
         <div className="container mx-auto px-4 py-6">
           <h2 className="text-xl font-semibold text-center mb-6">Order Summary</h2>
 
           {/* Product Summary */}
           <div className="mb-6 flex items-center justify-center">
-            <div className="w-32">
-              <img
-                src={cartItems[0]?.image || "/images/ordes1.png"}
-                alt="Product"
-                className="w-full h-auto"
-              />
-            </div>
-          </div>
+  <div className="w-32">
+    <img
+      src={cartItems[0]?.image || ordes1}
+      alt="Product"
+      className="w-full h-auto"
+    />
+  </div>
+</div>
+
 
           {/* Order Details */}
           <div className="space-y-4 mb-6">

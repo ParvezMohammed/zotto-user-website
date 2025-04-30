@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IoMdStarOutline } from 'react-icons/io';
+import orders4 from "../../../assets/images/orders4.png"
 
 const AddReview = () => {
   const [rating, setRating] = useState(0);
@@ -18,7 +19,7 @@ const AddReview = () => {
 
 <div className="block sm:hidden flex flex-col items-center mb-6">
   <img
-    src="./images/orders4.png"
+    src={orders4}
     alt="Product"
     className="w-32 h-32 object-cover rounded-lg mb-2"
   />

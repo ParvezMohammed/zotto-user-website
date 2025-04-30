@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import image35 from '../../../assets/images/image35.png'; // ✅ Import image correctly
 
 export default function ViewOrderDetail() {
-  // Sample order data - you can replace this with your actual data later
   const [orderData] = useState({
     orderPlaced: "10 January 2025",
     orderDelivered: "12 January 2025",
@@ -22,24 +22,25 @@ export default function ViewOrderDetail() {
         name: "Softcare Sanitary Pads",
         count: "15 Pads",
         price: "₹123.00",
-        image:"./images/image35.png"
+        image: image35
       },
       {
         id: 2,
         name: "Softcare Sanitary Pads",
         count: "30 Pads",
         price: "₹223.00",
-        image:"./images/image35.png"
+        image: image35
       },
       {
         id: 3,
         name: "Softcare Sanitary Pads",
         count: "30 Pads",
         price: "₹223.00",
-        image:"./images/image35.png"
+        image: image35
       }
     ]
   });
+
 
   return (
     <div className=" text-left mx-auto p-6 bg-white">

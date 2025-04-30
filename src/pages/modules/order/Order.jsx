@@ -1,11 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-// import './Order.css';
+
+import orders1 from '../../../assets/images/ordes1.png';
+import orders2 from '../../../assets/images/orders2.png';
+import orders3 from '../../../assets/images/orders3.png';
+import orders4 from '../../../assets/images/orders4.png';
 
 const orders = [
   {
     id: 1,
-    productImg: './images/ordes1.png',
+    productImg: orders1,
     productName: 'Softcare Sanitary Pads',
     quantity: '10 Pads',
     price: '₹123.00',
@@ -15,7 +19,7 @@ const orders = [
   },
   {
     id: 2,
-    productImg: './images/orders2.png',
+    productImg: orders2,
     productName: 'Anytime Sanitary Pads',
     quantity: '10 Pads',
     price: '₹256.00',
@@ -25,7 +29,7 @@ const orders = [
   },
   {
     id: 3,
-    productImg: './images/orders3.png',
+    productImg: orders3,
     productName: 'Ladysoft Sanitary Pads',
     quantity: '8 Pads',
     price: '₹245.00',
@@ -35,7 +39,7 @@ const orders = [
   },
   {
     id: 4,
-    productImg: './images/orders4.png',
+    productImg: orders4,
     productName: 'Petals Sanitary Pads (Combo of 4)',
     quantity: 'Each 10 Pads',
     price: '₹1200.00',
@@ -44,6 +48,7 @@ const orders = [
     delivered: false,
   }
 ];
+
 
 const Orders = () => {
   const navigate = useNavigate();
