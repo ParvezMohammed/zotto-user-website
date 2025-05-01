@@ -72,7 +72,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex flex-col items-center px-4 md:px-[190px] pt-5 pb-10 bg-white min-h-screen">
+    <div className="flex flex-col items-center px-4 md:px-[190px] pt-8 mt-16 pb-10 bg-white min-h-screen">
       
       {/* Top Heading and Edit Button */}
       <div className="w-full max-w-[1080px] flex justify-between items-center mb-5">

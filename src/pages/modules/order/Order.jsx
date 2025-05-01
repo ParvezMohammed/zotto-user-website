@@ -1,11 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-// import './Order.css';
+
+import orders1 from '../../../assets/images/ordes1.png';
+import orders2 from '../../../assets/images/orders2.png';
+import orders3 from '../../../assets/images/orders3.png';
+import orders4 from '../../../assets/images/orders4.png';
 
 const orders = [
   {
     id: 1,
-    productImg: './images/ordes1.png',
+    productImg: orders1,
     productName: 'Softcare Sanitary Pads',
     quantity: '10 Pads',
     price: '₹123.00',
@@ -15,7 +19,7 @@ const orders = [
   },
   {
     id: 2,
-    productImg: './images/orders2.png',
+    productImg: orders2,
     productName: 'Anytime Sanitary Pads',
     quantity: '10 Pads',
     price: '₹256.00',
@@ -25,7 +29,7 @@ const orders = [
   },
   {
     id: 3,
-    productImg: './images/orders3.png',
+    productImg: orders3,
     productName: 'Ladysoft Sanitary Pads',
     quantity: '8 Pads',
     price: '₹245.00',
@@ -35,7 +39,7 @@ const orders = [
   },
   {
     id: 4,
-    productImg: './images/orders4.png',
+    productImg: orders4,
     productName: 'Petals Sanitary Pads (Combo of 4)',
     quantity: 'Each 10 Pads',
     price: '₹1200.00',
@@ -45,6 +49,7 @@ const orders = [
   }
 ];
 
+
 const Orders = () => {
   const navigate = useNavigate();
 
@@ -53,29 +58,49 @@ const Orders = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto px-2 py-4 bg-white min-h-screen">
-      <h2 className="text-lg font-semibold text-gray-800 mb-4 text-center">My Orders</h2>
-      <div className="flex flex-col gap-4">
+    <div className="w-full px-4 mt-20 py-6 bg-white min-h-screen">
+      <h2 className="text-lg font-semibold bg-gray-200 text-gray-800 px-2 py-1 rounded mb-6">Delivery Product</h2>
+
+      {/* Grid Container */}
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 ">
         {orders.map((order) => (
-          <div key={order.id} className="bg-gray-50 rounded-lg p-3 flex flex-col sm:flex-row items-center sm:items-start shadow-sm">
-            <img src={order.productImg} alt={order.productName} className="w-20 h-20 object-contain mb-2 sm:mb-0 sm:mr-4 border border-gray-200 rounded-md p-2" />
-            <div className="flex-1 w-full">
-              <div className="font-medium text-gray-800 text-base mb-1">{order.productName}</div>
-              <div className="text-xs text-gray-500 mb-1">Quantity: {order.quantity}</div>
-              <div className="text-xs text-gray-500 mb-1">Order Placed: {order.orderDate}</div>
-              <div className="text-xs text-gray-500 mb-1">Delivery: {order.deliveryDate}</div>
-              <div className="text-xs text-gray-800 font-semibold mb-2">{order.price}</div>
-              <div className="flex flex-col gap-2 mt-2 w-full">
-                <button
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md text-xs text-gray-800 bg-white cursor-pointer whitespace-nowrap hover:bg-gray-100 transition"
-                  onClick={() => handleViewDetails(order.id)}
-                >
-                  View Order Details
-                </button>
-                <button className="w-full px-4 py-2 rounded-md text-xs text-white bg-pink-500 cursor-pointer whitespace-nowrap hover:bg-pink-600 transition">
-                  Order Again
-                </button>
+          <div
+            key={order.id}
+            className="rounded-lg p-4 flex flex-col items-center shadow-sm "
+          >
+            <div className='w-full bg-gray-200 rounded my-4 p-2'>
+              <div className='flex gap-4 w-full flex justify-between px-4 '>
+                <img
+                src={order.productImg}
+                alt={order.productName}
+                className="w-30 h-30 object-contain mb-3 rounded-md"
+              />
+              <div className='py-4'>
+                <p className='font-medium text-gray-800 text-base'>{order.productName}</p>
+                <p className='font-medium text-gray-800 text-base'>{order.quantity}</p>
+                <p className="text-xs text-gray-800 font-semibold mb-3">{order.price}</p>
               </div>
+              </div>
+              
+              <div className="text-center w-full ">
+                <p className="text-md font-semibold px-4 text-left text-gray-900 mb-1 flex justify-between">Quantity <span>{order.quantity}</span></p>
+                <p className="text-md font-semibold px-4 text-left text-gray-900 mb-1 flex justify-between">Order Placed <span>{order.orderDate}</span></p>
+                <p className="text-md font-semibold px-4 text-left text-gray-900 mb-1 flex justify-between ">Delivery <span>{order.deliveryDate}</span></p>
+              </div>
+            </div>
+            
+
+
+            <div className="flex flex-col gap-2 mt-auto w-full">
+              <button
+                className="w-full px-4 py-2 border border-gray-300 rounded-md text-xs text-gray-800 bg-white hover:bg-gray-100 transition"
+                onClick={() => handleViewDetails(order.id)}
+              >
+                View Order Details
+              </button>
+              <button className="w-full px-4 py-2 rounded-md text-xs text-white bg-pink-500 hover:bg-pink-600 transition">
+                Order Again
+              </button>
             </div>
           </div>
         ))}

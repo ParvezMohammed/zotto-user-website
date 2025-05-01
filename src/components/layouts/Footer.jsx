@@ -1,13 +1,14 @@
 import React from 'react';
+import zotto from "../../assets/images/zotto.jpg"
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t">
+    <footer className="bg-white">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo Section */}
           <div>
-            <img src="/images/zotto.jpg" alt="Zotto" className=" w-auto" style={{marginLeft:'auto'}}></img>
+            <img src={zotto} alt="Zotto" className=" w-auto" style={{marginLeft:'auto'}}></img>
           </div>
 
           {/* Get To Know Us */}
@@ -29,7 +30,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Let Us Help You */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Let Us Help You</h3>
             <ul className="space-y-2">

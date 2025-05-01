@@ -4,7 +4,7 @@ import Layout from "../components/layouts/Layout.jsx";
 import Login from "../pages/auth/login/Login.jsx";
 import VerifyOtp from "../pages/auth/verifyotp/VerifyOtp.jsx";
 import LogoutConfirm from "../pages/auth/logoutconfirm/LogoutConfirm.jsx";
-import LocationAccess from '../pages/auth/locationaccess/LocationAccess.jsx'
+import LocationAccess from "../pages/auth/locationaccess/LocationAccess.jsx";
 import Home from "../pages/modules/home/Home.jsx";
 import AddReview from "../pages/modules/addreview/AddReview.jsx";
 import PrivacyPolicy from "../pages/modules/privacypolicy/PrivacyPolicy.jsx";
@@ -13,12 +13,18 @@ import ContactUs from "../pages/modules/contactus/ContactUs.jsx";
 import AboutUs from "../pages/modules/aboutus/AboutUs.jsx";
 import Testimonials from "../pages/modules/testimonial/Testimonial.jsx";
 import Profile from "../pages/modules/profile/profile.jsx";
-import OrderDetails from "../pages/modules/orderdetails/OrderDetails.jsx";
+import OrderDetails from "../pages/modules/order/OrderDetails.jsx";
 import Orders from "../pages/modules/order/Order.jsx";
-import OrderConfirmed from "../pages/modules/orderconfirm/OrderConfirm.jsx";
-import OrderCancel from "../pages/modules/ordercancel/OrderCancel.jsx";
-import ViewOrderDetail from "../pages/modules/vieworderdetail/ViewOrderDetail.jsx";
+import OrderConfirm from "../pages/modules/order/OrderConfirm.jsx";
+import OrderCancel from "../pages/modules/order/OrderCancel.jsx";
+import ViewOrderDetail from "../pages/modules/order/ViewOrderDetail.jsx";
 import TrackOrder from "../pages/modules/trackorder/TrackOrder.jsx";
+import AllProducts from "../pages/modules/allproducts/AllProducts.jsx";
+import ProductDetail from "../pages/modules/allproducts/ProductDetail.jsx";
+import Checkout from "../pages/modules/checkout/Checkout.jsx";
+import Cart from "../pages/modules/cart/Cart.jsx";
+import OrderSuccess from "../pages/modules/order/OrderSuccess.jsx";
+import Notification from "../pages/modules/notifications/Notifications.jsx";
 
 const PublicRoute = () => {
   const [activeTab, setActiveTab] = useState("/");
@@ -61,7 +67,7 @@ const PublicRoute = () => {
         }
       />
       <Route
-        path="/logoutconfirm"
+        path="/logout"
         element={
           <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
             <LogoutConfirm />
@@ -91,6 +97,14 @@ const PublicRoute = () => {
         element={
           <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
             <AddReview />
+          </Layout>
+        }
+      />
+      <Route
+        path="/notifications"
+        element={
+          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+            <Notification />
           </Layout>
         }
       />
@@ -146,7 +160,7 @@ const PublicRoute = () => {
         path="/order-confirm"
         element={
           <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-            <OrderConfirmed />
+            <OrderConfirm />
           </Layout>
         }
       />
@@ -171,6 +185,46 @@ const PublicRoute = () => {
         element={
           <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
             <TrackOrder />
+          </Layout>
+        }
+      />
+      <Route
+        path="/all-products"
+        element={
+          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+            <AllProducts />
+          </Layout>
+        }
+      />
+      <Route
+        path="/product/:id"
+        element={
+          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+            <ProductDetail />
+          </Layout>
+        }
+      />
+      <Route
+        path="/checkout"
+        element={
+          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+            <Checkout />
+          </Layout>
+        }
+      />
+      <Route
+        path="/cart"
+        element={
+          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+            <Cart />
+          </Layout>
+        }
+      />
+      <Route
+        path="/order-success"
+        element={
+          <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+            <OrderSuccess />
           </Layout>
         }
       />

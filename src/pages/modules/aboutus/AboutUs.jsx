@@ -1,13 +1,14 @@
 import React from 'react';
 import { FaCircle } from 'react-icons/fa';
+import meeting from "../../../assets/images/meeting.png"
 
 const AboutUs = () => {
   return (
-    <div className="bg-white min-h-screen pt-6 pb-8 px-4 sm:px-6 md:px-10 lg:px-[130px] font-poppins">
+    <div className="bg-white min-h-screen pt-8 mt-16 pb-4  md:px-10 lg:px-[130px] font-poppins">
       
-      <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] overflow-hidden">
-        <img
-          src="../images/meeting.png"
+      <div className="relative w-full h-[180px] sm:h-[350px] md:h-[400px] overflow-hidden">
+      <img
+          src={meeting}
           alt="About Us"
           className="w-full h-full object-cover"
         />
@@ -23,7 +24,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className="mt-10 sm:mt-12">
+      <div className="mt-10 px-4 sm:mt-12">
         <h2 className="text-[24px] sm:text-[28px] md:text-[32px] font-[500] text-black mb-4 pb-2  inline-block border-b-2 border-black">
           About Us
         </h2>

@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import user1 from '../../../assets/images/user1.png'; // ✅ Static import
+import user2 from '../../../assets/images/user2.png'; // ✅ Static import
 
 const testimonialData = [
   {
@@ -7,24 +9,23 @@ const testimonialData = [
     name: 'Himani Raut',
     status: 'Satisfied Customer, Himani',
     text: 'Whisper Sanitary Pads provide exceptional comfort and reliable protection, ensuring you feel fresh and secure all day long.',
-    image: './images/user1.png'
+    image: user1
   },
   {
     id: 2,
     name: 'Nandini Nahata',
     status: 'Happy customer, Nandini',
-    text: 'I swear by Whisper Sanitary Pads. They\'re incredibly comfortable and provide the best protection!',
-    image: './images/user2.png'
+    text: "I swear by Whisper Sanitary Pads. They're incredibly comfortable and provide the best protection!",
+    image: user2
   },
   {
     id: 3,
     name: 'Kajal Patil',
     status: 'Happy customer, Kajal',
-    text: 'I swear by Whisper Sanitary Pads. They\'re incredibly comfortable and provide the best protection!',
-    image: './images/user2.png'
+    text: "I swear by Whisper Sanitary Pads. They're incredibly comfortable and provide the best protection!",
+    image: user2
   }
 ];
-
 const Testimonials = () => {
   return (
     <div className="bg-white py-10 px-5  mx-auto">
