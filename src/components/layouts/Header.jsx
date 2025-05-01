@@ -60,20 +60,19 @@ const Header = () => {
           {/* Search Bar - Desktop */}
           <div className="hidden md:flex flex-1 max-w-xl mx-4 lg:mx-8">
             <form onSubmit={handleSearch} className="w-full">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  className="w-full py-2 px-4 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-                <button 
+            <button 
                   type="submit" 
-                  className="absolute right-0 top-0 mt-2 mr-3 text-gray-500 hover:text-pink-500"
+                  className="absolute top-6 pl-4 z-50 mt-2 mr-3 text-gray-500 hover:text-pink-500"
                 >
                   <MagnifyingGlassIcon className="h-5 w-5" />
                 </button>
+              <div className="relative">
+                <input
+                  type="text"
+                  className="w-full py-2 bg-zinc-100 px-4 pr-10 rounded-3xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
               </div>
             </form>
           </div>
