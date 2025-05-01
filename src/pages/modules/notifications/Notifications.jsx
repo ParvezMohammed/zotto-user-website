@@ -64,13 +64,13 @@ const Notifications = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col ">
     
-      <div className="flex-grow pt-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
-          <div className="bg-white rounded-lg shadow">
+      <div className="flex-grow pt-16 bg-gray-50 ">
+        <div className="max-w-[80%] mx-auto p-4 sm:p-6 lg:p-8">
+          <div className="bg-white rounded-lg shadow w-full ">
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b">
+            <div className="flex items-center justify-between p-4 border-b ">
               <h1 className="text-2xl font-semibold text-gray-900">Notifications</h1>
               <button
                 onClick={handleMarkAllAsRead}
