@@ -259,7 +259,7 @@ export default function Home() {
         </section>
 
         {/* Impact Section */}
-        <div className="py-12 bg-white flex flex-col md:flex-row items-center justify-between px-6">
+        <div className="py-12 bg-white flex flex-col-reverse md:flex-row items-center justify-between px-6">
           <div className="w-full md:w-1/2 flex items-center justify-center mb-8 md:mb-0">
             <img
               src={sectionLeft}
@@ -267,7 +267,7 @@ export default function Home() {
               className="w-full h-auto"
             />
           </div>
-          <div className="w-full md:w-1/2 p-6">
+          <div className="w-full md:w-1/2 p-6 ">
             <h1 className="text-2xl font-bold text-gray-800 mb-6">
               Making a Positive Impact on Women's Comfort and Well-being
             </h1>
@@ -369,7 +369,7 @@ export default function Home() {
         </div>
 
         {/* Contact Section */}
-        <div className="relative w-full h-auto md:h-[1440px] mx-auto">
+        <div className="relative w-full max-h-180 mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start p-6 bg-white">
             {/* Left Side Content */}
             <div className="md:w-1/2 w-full mb-8 md:mb-0">
@@ -416,7 +416,7 @@ export default function Home() {
           </div>
 
           {/* Map Section */}
-          <div className="w-full h-64 md:h-[719px] bg-gray-200">
+          <div className="w-full my-6 md:h-[719px] bg-gray-200">
             <img
               src={sectionlocation}
               alt="Location map"

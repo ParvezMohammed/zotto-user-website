@@ -9,7 +9,7 @@ import orders4 from '../../../assets/images/orders4.png';
 const RemoveModal = ({ open, onClose, onConfirm }) => {
   if (!open) return null;
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-80 backdrop-blur-sm">
+    <div className=" fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-80 backdrop-blur-sm">
       <div className="bg-white rounded-2xl p-8 w-80 max-w-full flex flex-col items-center shadow-xl">
         <h2 className="text-3xl font-semibold mb-2 text-center">Remove Item?</h2>
         <p className="text-gray-400 text-center mb-8">Are you sure you want to remove this item?</p>
@@ -133,7 +133,7 @@ const Cart = () => {
     <div className="min-h-screen flex flex-col bg-gray-50">
   
       {/* Delivery Address Header */}
-      <div className="bg-white border-b">
+      <div className="bg-white border-b mt-7">
         <div className="container mx-auto px-4 py-4 mt-16">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-2 md:space-y-0">
             <div className="flex items-center space-x-2">
