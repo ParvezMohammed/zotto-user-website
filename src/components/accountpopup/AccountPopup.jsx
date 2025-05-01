@@ -7,40 +7,42 @@ const AccountPopup = ({ onClose }) => {
 
   const handleClick = (action) => {
     if (action === "Logout") {
-      navigate("/logoutconfirm");
+      navigate("/logout");
     } else if (action === "My Profile") {
       navigate("/profile");
     } else if (action === "Orders") {
       navigate("/orders");
     }
     if (onClose) {
-      onClose(); 
+      onClose();
     }
   };
 
   return (
-    <div className="bg-white border rounded-lg shadow-md p-4 w-48">
-      <div className="flex flex-col gap-4">
+    <div className="bg-white w-48 p-4 shadow-md">
+      <div className="flex flex-col gap-3">
         <button
           onClick={() => handleClick("My Profile")}
-          className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded-md"
+          className="flex items-center gap-2 bg-gray-100 px-3 py-2 text-sm text-gray-700 w-full text-left"
         >
           <FaUser className="text-pink-500" />
-          <span className="text-gray-700 text-sm">My Profile</span>
+          <span>My Profile</span>
         </button>
+
         <button
           onClick={() => handleClick("Orders")}
-          className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded-md"
+          className="flex items-center gap-2 bg-gray-100 px-3 py-2 text-sm text-gray-700 w-full text-left"
         >
           <FaBox className="text-pink-500" />
-          <span className="text-gray-700 text-sm">Orders</span>
+          <span>Orders</span>
         </button>
+
         <button
           onClick={() => handleClick("Logout")}
-          className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded-md"
+          className="flex items-center gap-2 bg-gray-100 px-3 py-2 text-sm text-gray-700 w-full text-left"
         >
           <FaSignOutAlt className="text-pink-500" />
-          <span className="text-gray-700 text-sm">Logout</span>
+          <span>Logout</span>
         </button>
       </div>
     </div>

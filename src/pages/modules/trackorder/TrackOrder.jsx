@@ -1,6 +1,5 @@
 import React from 'react';
-
-// Custom circle dot component
+import image35 from "../../../assets/images/image35.png"
 const CircleDot = () => (
   <div className="relative w-5 h-5">
     <div className="absolute inset-0 rounded-full bg-red-400"></div>
@@ -11,7 +10,7 @@ const CircleDot = () => (
 
 export default function TrackOrder() {
   return (
-    <div className="max-w-4xl mx-auto p-4 font-sans">
+    <div className="max-w-4xl pt-8 mt-16 mx-auto p-4 font-sans">
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-xl font-bold">Track Order</h1>
@@ -27,7 +26,7 @@ export default function TrackOrder() {
       <div className="border border-gray-200 rounded-lg p-6 mb-8 flex">
         <div className='flex'>
         <div className="mr-8">
-          <img src="/images/image35.png" alt="Whisper Ultra Soft XL Sanitary Pads" className="w-48" />
+          <img src={image35} alt="Whisper Ultra Soft XL Sanitary Pads" className="w-48" />
         </div>
         </div>
         <div>

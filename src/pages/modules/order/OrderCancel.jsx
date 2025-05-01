@@ -21,10 +21,10 @@ function OrderCancel() {
   };
 
   return (
-    <div className="flex justify-center mt-10 w-full">
+    <div className="flex justify-center mt-10 w-full mt-20">
       <form onSubmit={handleSubmit} className=" p-6 w-full rounded-lg ">
-<div className='text-left'>        <h2 className="text-2xl font-semibold mb-6">Choose a Reason</h2>
-</div>
+        <div className='text-left'>        <h2 className="text-2xl font-semibold mb-6">Choose a Reason</h2>
+        </div>
         {reasons.map((reason, index) => (
           <div key={index} className="flex items-center mb-4">
             <input
@@ -51,17 +51,17 @@ function OrderCancel() {
             rows="4"
           />
         )}
-         <div className='w-full h-44 border border-grey-2 text-left pl-8 pr-8'>
-      <input
-        type="text"
-        placeholder="Write a Reason.."
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        
-      />
-       {text}
-    </div>
-        <div><button
+        <div className='w-full h-44 border border-grey-2 text-left pl-8 pr-8'>
+          <input
+            type="text"
+            placeholder="Write a Reason.."
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+
+          />
+          {text}
+        </div>
+        <div className='flex justify-center items-center'><button
           type="submit"
           className="mt-6 ml-6  gap-2 w-[204px] h-[66px] bg-pink-400 hover:bg-pink-500 text-white font-semibold  rounded-full transition-colors"
         >

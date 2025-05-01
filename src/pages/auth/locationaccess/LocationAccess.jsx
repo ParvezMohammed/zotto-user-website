@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import cuate1 from "../../../assets/images/cuate1.PNG"
 
 const LocationAccess = () => {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ const LocationAccess = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md border text-center">
-        <img src="/cuate1.png" alt="Location Access" className="mx-auto mb-6" />
+        <img src={cuate1} alt="Location Access" className="mx-auto mb-6" />
         <h2 className="text-2xl font-semibold mb-2">Location Access</h2>
         <p className="text-gray-500 mb-6">To navigate your location at ease</p>
 

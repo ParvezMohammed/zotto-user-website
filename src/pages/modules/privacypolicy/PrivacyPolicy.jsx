@@ -1,6 +1,6 @@
 
 import React from 'react';
-import PolicySection from '../../../components/messagesection';
+import PolicySection from '../../../components/messagesection/Messagesection';
 
 const PrivacyPolicy = () => {
   const privacyPoints = [

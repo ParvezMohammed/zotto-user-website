@@ -9,11 +9,13 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // You can add phone validation here
+    console.log('Login attempt with phone:', phone);
+    // TODO: Implement actual authentication
     navigate("/verifyotp");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center mt-16 pt-8 justify-center bg-gray-100">
       <div className="bg-white p-10 rounded-lg shadow-md w-full max-w-md border border-gray-300">
         <h2 className="text-2xl font-semibold text-center mb-2">Log In</h2>
         <p className="text-center text-gray-500 mb-6">
