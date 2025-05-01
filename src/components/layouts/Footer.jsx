@@ -7,8 +7,8 @@ const Footer = () => {
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo Section */}
-          <div>
-            <img src={zotto} alt="Zotto" className=" w-auto" style={{marginLeft:'auto'}}></img>
+          <div className="flex justify-center md:justify-start">
+            <img src={zotto} alt="Zotto" className="w-auto md:ml-auto" />
           </div>
 
           {/* Get To Know Us */}
