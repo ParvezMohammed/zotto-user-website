@@ -86,7 +86,3 @@ For major changes, please open an issue first to discuss your ideas.
 - **Website:** [zotto.com](https://zotto.com)
 
 ---
-
-## 📝 License
-
-This project is licensed under the MIT License.
