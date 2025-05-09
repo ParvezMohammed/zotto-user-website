@@ -1,12 +1,92 @@
-# React + Vite
+## 🌸 Welcome to Zotto!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Zotto is a modern, elegant, and fully responsive e-commerce platform dedicated to women's care products. With a focus on comfort, trust, and seamless shopping, Zotto empowers women to discover, review, and purchase premium products with ease. Built using the latest web technologies, Zotto delivers a delightful user experience on any device.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🛍️ **Shop Premium Products**: Browse, filter, and buy from a curated selection of women's care essentials
+- 📱 **Mobile-First & Responsive**: Beautiful and functional on all screen sizes
+- 🔒 **Secure Authentication**: Login, OTP verification, and protected user sessions
+- 🛒 **Cart & Checkout**: Add to cart, review, and place orders with a smooth checkout flow
+- 🚚 **Order Tracking**: Track your orders and view detailed order history
+- ⭐ **Reviews & Testimonials**: Share your experience and read what others say
+- 📦 **Order Success Animation**: Celebrate your purchase with confetti!
+- 📄 **Informative Pages**: About Us, Contact, Privacy Policy, Terms & Conditions
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🌐 Live Demo
+
+> _Coming soon!_
+
+---
+
+## 🛠️ Tech Stack
+
+- **React 18**
+- **Vite**
+- **TailwindCSS**
+- **Heroicons**
+- **Canvas-Confetti** (for order success)
+
+---
+
+## 🗂️ Project Structure
+
+```
+src/
+├── assets/            # Images and static assets
+├── components/        # Reusable UI components (Footer, Navbar, Layout, etc.)
+├── pages/
+│   └── modules/       # Main app pages (home, allproducts, cart, checkout, etc.)
+├── routes/            # Routing logic (PublicRoute.jsx)
+├── App.jsx            # App entry point
+└── main.jsx           # Vite entry point
+```
+
+---
+
+## ⚡ Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ParvezMohammed/zotto-user-website.git
+   cd zotto-user-website
+   ```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   The app will be running at [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! To get started:
+- Fork the repository
+- Create a new branch (`git checkout -b feature/your-feature`)
+- Commit your changes (`git commit -m 'Add new feature'`)
+- Push to the branch (`git push origin feature/your-feature`)
+- Open a Pull Request
+
+For major changes, please open an issue first to discuss your ideas.
+
+---
+
+## 📬 Contact
+
+- **Email:** support@zotto.com
+- **Website:** [zotto.com](https://zotto.com)
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License.
